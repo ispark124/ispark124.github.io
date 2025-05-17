@@ -59,46 +59,10 @@ class BlogManager {
 
     async loadPosts() {
         try {
-            // Fetch the list of blog posts from the blog directory
-            const response = await fetch('/blog');
-            const html = await response.text();
+            // Fetch the blog posts metadata from a JSON file
+            const response = await fetch('/posts.json');
+            this.posts = await response.json();
             
-            // Create a temporary div to parse the HTML
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
-            
-            // Get all HTML files from the blog directory
-            const links = tempDiv.querySelectorAll('a');
-            const blogFiles = Array.from(links)
-                .map(link => link.href)
-                .filter(href => href.endsWith('.html'))
-                .map(href => href.split('/').pop());
-
-            // Load each blog post
-            for (const file of blogFiles) {
-                const postResponse = await fetch(`/blog/${file}`);
-                const postHtml = await postResponse.text();
-                
-                // Create a temporary div to parse the post HTML
-                const postDiv = document.createElement('div');
-                postDiv.innerHTML = postHtml;
-                
-                // Extract post information
-                const title = postDiv.querySelector('h1')?.textContent || 'Untitled';
-                const date = postDiv.querySelector('.post-date')?.textContent || new Date().toLocaleDateString();
-                const mainContent = postDiv.querySelector('.post-content p')?.textContent || '';
-                const excerpt = mainContent.split('\n')[0].substring(0, 150) + '...'; // Get first line, limit to 150 chars
-                const image = postDiv.querySelector('.post-image')?.src || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000';
-                
-                this.posts.push({
-                    title,
-                    date,
-                    excerpt,
-                    image,
-                    slug: file.replace('.html', '')
-                });
-            }
-
             // Sort posts by date (newest first)
             this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
             
@@ -168,7 +132,7 @@ class BlogManager {
         const article = document.createElement('article');
         article.className = 'post-card';
         article.innerHTML = `
-            <a href="/blog/${post.slug}.html" class="post-link">
+            <a href="blog/${post.slug}.html" class="post-link">
                 <div class="post-image">
                     <img src="${post.image}" alt="${post.title}">
                 </div>
@@ -199,13 +163,13 @@ class BlogManager {
         navigationContainer.innerHTML = `
             <div class="post-navigation__inner">
                 ${prevPost ? `
-                    <a href="/blog/${prevPost.slug}.html" class="post-navigation__link post-navigation__link--prev">
+                    <a href="blog/${prevPost.slug}.html" class="post-navigation__link post-navigation__link--prev">
                         <span class="post-navigation__label">Previous Post</span>
                         <span class="post-navigation__title">${prevPost.title}</span>
                     </a>
                 ` : '<div></div>'}
                 ${nextPost ? `
-                    <a href="/blog/${nextPost.slug}.html" class="post-navigation__link post-navigation__link--next">
+                    <a href="blog/${nextPost.slug}.html" class="post-navigation__link post-navigation__link--next">
                         <span class="post-navigation__label">Next Post</span>
                         <span class="post-navigation__title">${nextPost.title}</span>
                     </a>
