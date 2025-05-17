@@ -163,13 +163,13 @@ class BlogManager {
         navigationContainer.innerHTML = `
             <div class="post-navigation__inner">
                 ${prevPost ? `
-                    <a href="blog/${prevPost.slug}.html" class="post-navigation__link post-navigation__link--prev">
+                    <a href="${prevPost.slug}.html" class="post-navigation__link post-navigation__link--prev">
                         <span class="post-navigation__label">Previous Post</span>
                         <span class="post-navigation__title">${prevPost.title}</span>
                     </a>
                 ` : '<div></div>'}
                 ${nextPost ? `
-                    <a href="blog/${nextPost.slug}.html" class="post-navigation__link post-navigation__link--next">
+                    <a href="${nextPost.slug}.html" class="post-navigation__link post-navigation__link--next">
                         <span class="post-navigation__label">Next Post</span>
                         <span class="post-navigation__title">${nextPost.title}</span>
                     </a>
