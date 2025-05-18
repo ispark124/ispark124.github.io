@@ -6,6 +6,7 @@
     <title>Isaiah's Corner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="header">
@@ -14,34 +15,25 @@
                 <a class="logo" href="/">
                     <img src="blog/logo.png" alt="Logo" class="logo-image">
                 </a>
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a class="nav__link" href="/">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a class="nav__link" href="/blog.html">Blog</a>
-                        </li>
-                        <li class="nav__item">
-                            <a class="nav__link" href="/art.html">Art</a>
-                        </li>
-                        <li class="nav__item">
-                            <a class="nav__link" href="/about.html">About</a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="topnav" id="myTopnav">
+                    <a href="/" class="active">Home</a>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/art.html">Art</a>
+                    <a href="/about.html">About</a>
+                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </div>
             </div>
         </div>
     </header>
-
     <main class="main">
         <!-- Welcome Section -->
         <section class="welcome-section">
             <div class="container">
                 <div class="welcome-content">
                     <h1 class="welcome-title">Welcome to Isaiah's Corner</h1>
-                    <p class="welcome-text">This is my space to grow.</p>
-                    <a href="blog/welcome-hello.html" class="welcome-link">Mission</a>
+                    <a href="blog/welcome-hello.html" class="welcome-link">MISSION</a>
                 </div>
             </div>
         </section>

@@ -8,10 +8,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set active navigation link
     const currentPage = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav__link');
+    const navLinks = document.querySelectorAll('.nav__link, .topnav a:not(.icon)');
     
+    // First, remove all active classes
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        link.classList.remove('active');
+    });
+
+    // Then set active class only for the current page
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Normalize the paths for comparison
+        const normalizedHref = href.replace(/^\.\//, '').replace(/\/$/, '');
+        const normalizedCurrentPage = currentPage.replace(/^\.\//, '').replace(/\/$/, '');
+        
+        // For home page
+        if (normalizedCurrentPage === '' || normalizedCurrentPage === 'index.html') {
+            if (normalizedHref === 'index.html' || normalizedHref === '') {
+                link.classList.add('active');
+            }
+        } 
+        // For other pages
+        else if (normalizedCurrentPage === normalizedHref) {
             link.classList.add('active');
         }
     });
@@ -22,30 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Art page category filtering
-    const categoryButtons = document.querySelectorAll('.category-btn');
     const artItems = document.querySelectorAll('.art-item');
 
-    if (categoryButtons.length > 0) {
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const category = button.dataset.category;
-
-                artItems.forEach(item => {
-                    if (category === 'all' || item.classList.contains(category)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
 });
+
+function hamburger() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
 
 // Blog post handling
 class BlogManager {
@@ -350,4 +357,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('art.html')) {
         artManager.loadArtItems();
     }
-}); 
+}) 
