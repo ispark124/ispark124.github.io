@@ -48,6 +48,14 @@ body strong {
     color: var(--primary-color);
 }
 
+a {
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--primary-color);
+  }
+
 .block-quote {
     font-style: italic;
 }
