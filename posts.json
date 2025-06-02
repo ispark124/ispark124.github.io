@@ -250,5 +250,12 @@
     "slug": "summer-love",
     "excerpt": "I always start these with a 'wow I haven't written in so long, glad we're back...",
     "image": "photos/summer.jpg"
+  },
+  {
+    "title": "sight & goals",
+    "date": "June 1, 2025",
+    "slug": "sight-goals",
+    "excerpt": "This first week of Summer has been rough in ways that I can't fully describe. I think...",
+    "image": "photos/sight.jpg"
   }
 ] 
