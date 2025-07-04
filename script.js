@@ -357,4 +357,133 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('art.html')) {
         artManager.loadArtItems();
     }
+})
+
+// Portfolio Manager class
+class PortfolioManager {
+    constructor() {
+        this.projects = [];
+        this.portfolioGrid = document.getElementById('portfolioGrid');
+    }
+
+    async loadProjects() {
+        try {
+            const response = await fetch('portfolio.json');
+            this.projects = await response.json();
+            await this.renderProjects();
+        } catch (error) {
+            console.error('Error loading portfolio projects:', error);
+        }
+    }
+
+    async renderProjects() {
+        if (!this.portfolioGrid) return;
+        this.portfolioGrid.innerHTML = '';
+        this.projects.forEach(project => {
+            const projectElement = this.createProjectElement(project);
+            this.portfolioGrid.appendChild(projectElement);
+        });
+    }
+
+    createProjectElement(project) {
+        const article = document.createElement('article');
+        article.className = 'post-card';
+        let imagesHtml = '';
+        if (Array.isArray(project.images) && project.images.length > 0) {
+            // Use the first image as the main image
+            const imgObj = project.images[0];
+            imagesHtml = `
+                <div class="post-image">
+                    <img src="${imgObj.src}" alt="${imgObj.caption || project.title}" loading="lazy">
+                </div>
+            `;
+        } else {
+            imagesHtml = '';
+        }
+        article.innerHTML = `
+            <div class="post-link" style="cursor: pointer;">
+                ${imagesHtml}
+                <div class="post-content">
+                    <div class="post-meta">
+                        ${project.date ? `<span class="post-date">${project.date}</span>` : ''}
+                    </div>
+                    <h2 class="title">${project.title}</h2>
+                    <p class="post-excerpt">${project.description || ''}</p>
+                    <div class="post-footer">
+                        <span class="read-more">View Project →</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        // Add click event listener for modal
+        article.querySelector('.post-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            this.showProjectModal(project);
+        });
+        return article;
+    }
+
+    showProjectModal(project) {
+        const modal = document.createElement('div');
+        modal.className = 'art-modal';
+        let imagesHtml = '';
+        if (Array.isArray(project.images)) {
+            imagesHtml = project.images.map(imgObj => `
+                <figure style="margin-bottom: 20px;">
+                    <img src="${imgObj.src}" alt="${imgObj.caption || project.title}" style="max-width: 100%; max-height: 60vh; display: block; margin: 0 auto;">
+                    ${imgObj.caption ? `<figcaption style='font-size: 1em; color: #666; text-align: center; margin-top: 5px;'>${imgObj.caption}</figcaption>` : ''}
+                </figure>
+            `).join('');
+        }
+        let pdfHtml = '';
+        if (project.pdf) {
+            pdfHtml = `<a href="${project.pdf}" class="view-all-link" target="_blank" style="margin-top: 20px; display: inline-block;">Download Report (PDF)</a>`;
+        }
+        modal.innerHTML = `
+            <div class="art-modal__content">
+                <button class="art-modal__close">&times;</button>
+                <article class="art-full">
+                    <header class="art-full__header">
+                        <h1 class="art-full__title">${project.title}</h1>
+                    </header>
+                    <div class="art-full__image">
+                        ${imagesHtml}
+                    </div>
+                    <div class="art-full__content">
+                        <p style="font-size: 1.1em; margin: 20px 0;">${project.description || ''}</p>
+                        ${pdfHtml}
+                    </div>
+                </article>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.art-modal__close');
+        closeBtn.addEventListener('click', () => {
+            modal.remove();
+            document.body.style.overflow = '';
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
+
+// Initialize portfolio manager
+const portfolioManager = new PortfolioManager();
+
+// Load art or portfolio items when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing code ...
+    // Load art items if we're on the art page
+    if (window.location.pathname.includes('art.html')) {
+        artManager.loadArtItems();
+    }
+    // Load portfolio items if we're on the portfolio page
+    if (window.location.pathname.includes('portfolio.html')) {
+        portfolioManager.loadProjects();
+    }
 }) 

@@ -943,4 +943,32 @@ a {
     .post-navigation__link--next {
         text-align: left;
     }
+}
+
+#portfolioGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+#portfolioGrid .post-card {
+    font-family: "Cardo", serif;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#portfolioGrid .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #portfolioGrid {
+        grid-template-columns: 1fr;
+    }
 } 

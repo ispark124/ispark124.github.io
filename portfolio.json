@@ -1,0 +1,31 @@
+[
+  {
+    "title": "MAE416 Bio-inspired Temporary Housing Solution",
+    "images": [
+      { "src": "photos/tent_prototype.jpg", "caption": "Paper prototype of latest tent design" },
+      { "src": "photos/tent_drawing.jpg", "caption": "Origami tesselation pattern" }
+    ],
+    "description": "Motivated by a deep care for the unhoused community, my team and I set out to create a meaningful solution to the challenges of homelessness. We developed a chitin-inspired, origami-engineered tent designed to be cheaper, safer, and more portable than benchmark short-term housing solutions. We began by immersing ourselves in market research and understanding user experiences to define the critical parameters that truly mattered. With those insights, we thoughtfully designed, prototyped, and evaluated multiple iterations to ensure our solution met both functional and fiscal needs."
+  },
+  {
+    "title": "Isaiah's Corner",
+    "images":[{"src": "photos/welcome.jpg", "caption": null}],
+    "description": "Starting this project in May 2025, I had this coming for a very long time. With a little coding experience and a desire to continue the blog I started 5 years ago, I set off with a mission to learn and to create. It's incredibly rewarding to see a finished product that reflects my passions, creativity, and dedication. This website is an amalgamation of everything I was, am, and want to be, personally and now professionally."
+    },
+  {
+    "title": "MAE321 Wing Design",
+    "images": [
+      { "src": "photos/final_wing.jpg", "caption": "Fully assembled wing before weight testing" },
+      { "src": "photos/wing_fea.jpg", "caption": "Finite Element Analysis of wing beam" }
+    ],
+    "description": "In this project, my team and I engineered a lightweight model airfoil wing designed to hold over 95lbs in a cantilever test. Rooted in extensive user-focused analysis and FEA optimization, we carefully balanced strength, weight, and manufacturability to create a structurally efficient design. Using high-strength aluminum and origami-inspired truss pocketing, we built a wing that far exceeded initial goals, ultimately supporting up to 235lbs before failure. Through this iterative design process, we deepened our understanding of structural behavior, material optimization, and the critical importance of thoughtful engineering for impactful solutions."
+  },
+  {
+    "title": "MAE412 Autonomous Drawbridge",
+    "images": [
+      { "src": "photos/vectorboard.jpg", "caption": "Final vector board design that allowed communication between systems" },
+      { "src": "photos/trainboard.jpg", "caption": "Successful run of train through system" }
+    ],
+    "description": "In this project, my team and I developed an autonomous drawbridge control system for a model train, inspired by the engineering challenges of railroads in extreme environments. We approached it as a full product development cycle, starting with user-centered goals to create a robust, hands-free system that integrated hardware and software seamlessly. Through iterative design and testing, we engineered a screw jack mechanism driven by a servo motor, coordinated by an Arduino microcontroller, and triggered by Hall effect sensors to ensure reliable bridge actuation and precise train control. Each iteration refined alignment, sensor placement, and system sequencing to achieve a repeatable and dependable solution. This project deepened our understanding of integrating mechanical design with controls to build systems that are both innovative and practical."
+  } 
+] 
