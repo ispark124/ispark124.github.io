@@ -253,7 +253,7 @@
   },
   {
     "title": "sight & goals",
-    "date": "June 1, 2025",
+    "date": "June 01, 2025",
     "slug": "sight-goals",
     "excerpt": "This first week of Summer has been rough in ways that I can't fully describe. I think...",
     "image": "photos/sight.jpg"
@@ -264,5 +264,12 @@
     "slug": "ambition-time",
     "excerpt": "So I lowkey always do this thing when I start anything new: I forget everything I know...",
     "image": "photos/ambition.jpg"
+  },
+  {
+    "title": "austin & blessings",
+    "date": "July 31, 2025",
+    "slug": "austin-blessings",
+    "excerpt": "This summer's flown by so quickly, and I only have one week left in my time here in Austin...",
+    "image": "photos/austin.jpg"
   }
 ] 
