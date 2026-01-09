@@ -43,6 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Art page category filtering
     const artItems = document.querySelectorAll('.art-item');
 
+    // Set dynamic copyright year
+    const yearSpan = document.getElementById('copyright-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
 });
 
 function hamburger() {
@@ -67,7 +73,9 @@ class BlogManager {
     async loadPosts() {
         try {
             // Fetch the blog posts metadata from a JSON file
-            const response = await fetch('/posts.json');
+            // Use relative path for GitHub Pages compatibility
+            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
+            const response = await fetch(`${basePath}posts.json`);
             this.posts = await response.json();
             
             // Sort posts by date (newest first)
@@ -209,7 +217,9 @@ class ArtManager {
 
     async loadArtItems() {
         try {
-            const response = await fetch('art.json');
+            // Use relative path for GitHub Pages compatibility
+            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
+            const response = await fetch(`${basePath}art.json`);
             this.artItems = await response.json();
             await this.renderArtItems();
         } catch (error) {
@@ -368,7 +378,9 @@ class PortfolioManager {
 
     async loadProjects() {
         try {
-            const response = await fetch('portfolio.json');
+            // Use relative path for GitHub Pages compatibility
+            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
+            const response = await fetch(`${basePath}portfolio.json`);
             this.projects = await response.json();
             await this.renderProjects();
         } catch (error) {

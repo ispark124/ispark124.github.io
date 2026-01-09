@@ -1,0 +1,23 @@
+---
+title: summer & love
+date: May 24, 2025
+slug: summer-love
+excerpt: "I always start these with a 'wow I haven't written in so long, glad we're back..."
+image: photos/summer.jpg
+---
+
+I always start these with a "wow I haven't written in so long, glad we're back" kinda thing, and this time I'm not gonna do that. I guess in a way I did, but in a cool meta way. Alright, anyways, for those that aren't caught up: I'm gonna be living in Austin this **summer** for 11 weeks. I'm gonna be working full time, living on my own, and doing my best to live out a story worth telling.
+
+I feel like I have all these grandiose ideas of what this **summer** is gonna look like. It's gonna be life-changing, it's gonna be dynamic, and whatever it is it's gonna be huge. There's change like I've never really lived before—moving across the country by myself, working in a company I could potentially be at in the future, getting plugged into new communities. Why wouldn't my expectations for this **summer** be massive?
+
+But when I think about it and come down from my daydreaming I'm reminded that life isn't lived in the big pictures—it's in the every day, the mundane, the commonplace. It's in choosing to be kind to the grocery store worker or remembering to take out the trash or treating my friends to a meal just because. The thing is, I have so many goals for this **summer**: getting really good at cooking, running again, reading a ton, building lasting community here, falling deeper in **love** with the Lord (keep me accountable on any one of those please :)). But on top of big pictures, life also isn't lived in spreadsheets, goal tracking, or my journals. Unfortunate to be honest because everything's perfect there. So I guess the question for this **summer**—for every day really—is how do I wanna live my life?
+
+I'm sitting here writing this in a hotel room on my way down to Texas and I can't help but reflect on my drive down. I came down with my siblings, and gosh it's been so much fun but also no one knows how to push your buttons like your siblings. For someone who talks about **love** so often, you would think it'd be so easy, but on day 2 of driving, over 15 hours in, post mountain hike you're faced with **love** like a slap in the face. It's funny how this grand **summer** has to start where anything good always does, with the journey there and filled with the choices to **love**.
+
+I don't know if this is the right time to do it, but this is my blog so I'm gonna do it anyways. I feel like I haven't really written out what I believe **love** is. What does it even mean to **love** someone? At first, I was thinking it is considering someone as more important than yourself. While I think that's part of it, I don't think that's a complete picture to do **love** justice—it's gotta be externally sourced. We are fickle people and even how much we **love** ourselves fluctuates. I think **Love** has to be loving someone the way God does. Seeing them the way He does. Listening to, caring for, sacrificing for, dying for someone the way He does. **Love** is weighty, it's beautiful, it's costly.
+
+Of course I have to think of Jesus' words when asked about the greatest commandment, "And you shall **love** the Lord your God with all your heart and with all your soul and with all your mind and with all your strength.' The second is this: 'You shall **love** your neighbor as yourself. There is no other commandment greater than these." What really struck me as I was re-reading this passage in Mark, was the response of the scribe who asked Jesus this question. He understood it. He responded with, "to **love** \[God\] with all the heart and with all the understanding and with all the strength, and to **love** one's neighbor as oneself, _is much more than all whole burnt offerings and sacrifices_." At the time, the burnt offerings and sacrifices were the religious rituals people did to atone for sins or express their devotion to God. But what the scribe's saying flips it entirely on its head—if you claim Christianity but don't **love** God or His people you've missed the point.
+
+**Love** is what Jesus came to do.
+
+Shoot, how did I end up here? Ok, bringing it back full circle lol. This **summer** is going to be incredible. Yes, I have big plans and goals and things I wanna do, but that's not what makes up my life. This **summer** is going to be incredible because it is going to be about **love**. **Love** in the ordinary and in the mundane. Not big and flashy, but in sacrifice and choice. So going back to the question, how do I wanna live my life? **Love** like Jesus.
