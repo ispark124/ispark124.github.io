@@ -527,10 +527,10 @@ a {
 }
 
 .art-full__content.poetry {
-    padding: 40px;
+    padding: 20px;
     background: white;
     border-radius: 8px;
-    margin: 30px 0;
+    margin: 10px 0;
 }
 
 .art-full__content.poetry .poem-text {
