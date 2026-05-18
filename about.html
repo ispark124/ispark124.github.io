@@ -1,72 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - My Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Isaiah's Corner</title>
+  <meta name="description" content="Isaiah Park — son, student, friend, creative.">
+  <meta property="og:title" content="About — Isaiah's Corner">
+  <meta property="og:description" content="Isaiah Park — son, student, friend, creative.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.isaiahscorner.com/about.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/profile.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="blog/logo.png" alt="Logo" class="logo-image">
-                </a>
-                <div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+
+    <!-- Full-bleed warm header -->
+    <header class="about-hero">
+      <img
+        class="about-hero__photo"
+        src="/photos/profile.jpg"
+        alt="Isaiah Park"
+        width="148"
+        height="148"
+      >
+      <h1 class="about-hero__name">isaiah park</h1>
+      <p class="about-hero__subtitle">son. student. friend. creative.</p>
     </header>
 
-    <main class="main">
-        <div class="container">
-            <div class="about-section">
-                <div class="about-header">
-                    <div class="about-image">
-                        <img src="photos/profile.jpg" alt="Author" class="author-image">
-                    </div>
-                    <h1 class="title">Isaiah Park</h1>
-                    <p class="about-subtitle">Son. Student. Friend. Creative.</p>
-                </div>
-                
-                <div class="about-content">
-                    
-                    <div class="social-links">
-                        <a href="https://instagram.com/isaiah.park" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="https://linkedin.com/in/isaiahpark" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+    <!-- Two-column content -->
+    <div class="about-content">
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <!-- Left: bio -->
+      <div class="about-body" id="aboutBody">
+        <p>
+          
+        </p>
+      </div>
 
-    <script src="script.js"></script>
+      <!-- Right: sidebar -->
+      <aside class="about-sidebar">
+
+        <div class="about-sidebar__section">
+          <p class="about-sidebar__heading">find me</p>
+          <div class="about-social" aria-label="Social links">
+            <a
+              class="about-social__link"
+              href="https://instagram.com/isaiah.park"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Isaiah Park on Instagram"
+            >
+              <svg class="about-social__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+              instagram
+            </a>
+            <a
+              class="about-social__link"
+              href="https://linkedin.com/in/isaiahpark"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Isaiah Park on LinkedIn"
+            >
+              <svg class="about-social__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="3"/>
+                <line x1="8" y1="11" x2="8" y2="17"/>
+                <line x1="8" y1="8" x2="8" y2="8.5"/>
+                <path d="M12 11v6M12 14c0-2 6-2 6 0v3"/>
+              </svg>
+              linkedin
+            </a>
+          </div>
+        </div>
+
+        <div class="about-sidebar__section">
+          <p class="about-sidebar__heading">stay in the loop</p>
+          <section class="about-subscribe" aria-labelledby="subscribe-heading">
+            <p class="about-subscribe__desc" id="subscribe-heading">get notified when I post something new. no spam, ever.</p>
+            <div class="subscribe-form-embed" id="subscribeForm">
+              <p style="font-family: var(--font-body); font-style: italic; color: var(--text-muted); font-size: 14px;">
+                subscribe form coming soon.
+              </p>
+            </div>
+          </section>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
-</html> 
+</html>

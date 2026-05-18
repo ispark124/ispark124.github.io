@@ -1,19 +1,5 @@
 [
   {
-    "title": "ambition & time",
-    "date": "June 12, 2025",
-    "slug": "ambition-time",
-    "excerpt": "So I lowkey always do this thing when I start anything new: I forget everything I know...",
-    "image": "photos/ambition.jpg"
-  },
-  {
-    "title": "antron & unforgiveness",
-    "date": "May 18, 2020",
-    "slug": "antron-unforgiveness",
-    "excerpt": "The journey of forgiveness and healing...",
-    "image": "photos/antron.jpg"
-  },
-  {
     "title": "austin & blessings",
     "date": "July 31, 2025",
     "slug": "austin-blessings",
@@ -21,151 +7,11 @@
     "image": "photos/austin.jpg"
   },
   {
-    "title": "blogs & fingerprints",
-    "date": "July 19, 2020",
-    "slug": "blogs-fingerprints",
-    "excerpt": "How our digital presence leaves lasting impressions...",
-    "image": "photos/blogs.jpg"
-  },
-  {
-    "title": "books & reading",
-    "date": "July 17, 2020",
-    "slug": "books-reading",
-    "excerpt": "Today I was really reluctant to be pulled aside to start writing this. The thing about today was...",
-    "image": "photos/books.jpg"
-  },
-  {
-    "title": "brothers & pillows",
-    "date": "April 29, 2020",
-    "slug": "brothers-pillows",
-    "excerpt": "My brother’s name is Jeremiah and he’s 10 years old. I am 6 whole years older than he is...",
-    "image": "photos/bp.jpg"
-  },
-  {
-    "title": "complacency & growth",
-    "date": "September 09, 2023",
-    "slug": "complacency-growth",
-    "excerpt": "I started writing this blog about a week and a half ago, kind of reflecting on the past year and what I've been learning while...",
-    "image": "photos/complacency.jpg"
-  },
-  {
-    "title": "conversation & hunger",
-    "date": "July 07, 2020",
-    "slug": "conversation-hunger",
-    "excerpt": "Today I'm gonna do a Stream of Consciousness exercise so I'm just gonna write the first thing that comes to...",
-    "image": "photos/conversations.jpg"
-  },
-  {
-    "title": "creativity & attention",
-    "date": "August 04, 2023",
-    "slug": "creativity-attention",
-    "excerpt": "These days it's been hard for me to be creative. I don't remember the last time I picked...",
-    "image": "photos/creativity.jpg"
-  },
-  {
-    "title": "grades & identity",
-    "date": "December 03, 2022",
-    "slug": "grades-identity",
-    "excerpt": "It seems like such a stupid thing to talk about grades on here. It seems like such an insignificant...",
-    "image": "photos/grades.jpg"
-  },
-  {
-    "title": "healing & miracles",
-    "date": "April 30, 2020",
-    "slug": "healing-miracles",
-    "excerpt": "A few months ago I posted something on my Instagram story asking for prayer. Not for myself but...",
-    "image": "photos/healing.jpg"
-  },
-  {
-    "title": "home & growth",
-    "date": "November 26, 2022",
-    "slug": "home-growth",
-    "excerpt": "I can't say I know what I'm gonna write about right now, but I do feel like there is something to be written...",
-    "image": "photos/home.jpg"
-  },
-  {
-    "title": "life & updates",
-    "date": "November 18, 2022",
-    "slug": "life-updates",
-    "excerpt": "Gosh, it's been a minute. It's been a long time and I can't say I know exactly what drew me back to this. I...",
-    "image": "photos/life.jpg"
-  },
-  {
-    "title": "likes & followers",
-    "date": "July 11, 2020",
-    "slug": "likes-followers",
-    "excerpt": "Today's post is gonna come super easily to me, I feel like I've talked about this a lot over the last two...",
-    "image": "photos/likes.jpg"
-  },
-  {
-    "title": "listening & learning",
-    "date": "July 08, 2020",
-    "slug": "listening-learning",
-    "excerpt": "The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of...",
-    "image": "photos/listening.jpg"
-  },
-  {
-    "title": "love & thank you",
-    "date": "July 12, 2020",
-    "slug": "love-thankyou",
-    "excerpt": "Dear Heavenly Father, Thank you for such a beautiful day today. It's been a minute since...",
-    "image": "photos/love.jpg"
-  },
-  {
-    "title": "mindset & mentality",
-    "date": "July 06, 2020",
-    "slug": "mindset-mentality",
-    "excerpt": "I really have no idea what to write about so I'll just start with my day and then I'll probably get off track...",
-    "image": "photos/mindset.jpg"
-  },
-  {
-    "title": "new & beautiful",
-    "date": "January 30, 2023",
-    "slug": "new-beautiful",
-    "excerpt": "Gosh I feel like I'm forgetting how to do this again—it's been a while. Can't say I have anything particular...",
-    "image": "photos/new.jpg"
-  },
-  {
-    "title": "off days & fear",
-    "date": "May 10, 2020",
-    "slug": "offdays-fear",
-    "excerpt": "Everyone has those 'on days' where everything is going real great and everything's in line...",
-    "image": "photos/offdays.png"
-  },
-  {
-    "title": "present & intentional",
-    "date": "July 15, 2020",
-    "slug": "present-intentional",
-    "excerpt": "Today I was gonna write about something completely different but I felt compelled to write this after a...",
-    "image": "photos/present.jpg"
-  },
-  {
-    "title": "quarantine & purpose",
-    "date": "June 14, 2020",
-    "slug": "quarantine-purpose",
-    "excerpt": "Wow it's been a while but I'm back. I'm gonna be honest, it's been more difficult to listen for God these...",
-    "image": "photos/quarantine.jpg"
-  },
-  {
-    "title": "running & biking",
-    "date": "July 14, 2020",
-    "slug": "running-biking",
-    "excerpt": "It's been a little bit over a week and I'm really starting to run out of ideas here. I think",
-    "image": "photos/running.jpg"
-  },
-  {
-    "title": "seeds & harvest",
-    "date": "December 14, 2022",
-    "slug": "seeds-harvest",
-    "excerpt": "As I was sitting and reflecting last night, I kept getting this reoccurring theme of a harvest...",
-    "image": "photos/seeds.jpg"
-  },
-  {
-    "title": "selfishness & repentance",
-    "date": "July 13, 2020",
-    "slug": "selfishness-repentance",
-    "excerpt": "About an hour ago I was sitting and I was thinking of something to write about and couldn't think of anything...",
-    "image": "photos/selfishness.jpg"
+    "title": "ambition & time",
+    "date": "June 12, 2025",
+    "slug": "ambition-time",
+    "excerpt": "So I lowkey always do this thing when I start anything new: I forget everything I know...",
+    "image": "photos/ambition.jpg"
   },
   {
     "title": "sight & goals",
@@ -175,18 +21,11 @@
     "image": "photos/sight.jpg"
   },
   {
-    "title": "silence & solitude (i)",
-    "date": "April 26, 2020",
-    "slug": "ssi",
-    "excerpt": "Yesterday I sat in a closet for over an hour in silence. I sat there just listening. Listening...",
-    "image": "photos/ss.jpg"
-  },
-  {
-    "title": "silence & solitude (ii)",
-    "date": "July 10, 2020",
-    "slug": "ssii",
-    "excerpt": "Ever since I first started practicing prayer and listening in the...",
-    "image": "photos/ss.jpg"
+    "title": "summer & love",
+    "date": "May 24, 2025",
+    "slug": "summer-love",
+    "excerpt": "I always start these with a 'wow I haven't written in so long, glad we're back...",
+    "image": "photos/summer.jpg"
   },
   {
     "title": "steadfast love & faithfulness",
@@ -196,39 +35,18 @@
     "image": "photos/steadfast.jpg"
   },
   {
-    "title": "success & loss",
-    "date": "June 18, 2020",
-    "slug": "success-loss",
-    "excerpt": "The following is my final English assignment for my '19-20 school year. It was to answer...",
-    "image": "photos/success.jpg"
+    "title": "complacency & growth",
+    "date": "September 09, 2023",
+    "slug": "complacency-growth",
+    "excerpt": "I started writing this blog about a week and a half ago, kind of reflecting on the past year and what I've been learning while...",
+    "image": "photos/complacency.jpg"
   },
   {
-    "title": "summer & love",
-    "date": "May 24, 2025",
-    "slug": "summer-love",
-    "excerpt": "I always start these with a 'wow I haven't written in so long, glad we're back...",
-    "image": "photos/summer.jpg"
-  },
-  {
-    "title": "texting & reconnecting",
-    "date": "July 16, 2020",
-    "slug": "texting-reconnecting",
-    "excerpt": "Today was a day for <strong>reconnection</strong>. Relationship rebuilding and reaching out...",
-    "image": "photos/texting.jpg"
-  },
-  {
-    "title": "time & abundance",
-    "date": "November 19, 2022",
-    "slug": "time-abundance",
-    "excerpt": "I was having a really good conversation yesterday and I've realized something pretty amazing is happening...",
-    "image": "photos/time.jpg"
-  },
-  {
-    "title": "timing & season",
-    "date": "July 18, 2020",
-    "slug": "timing-season",
-    "excerpt": "Isn't it crazy how people and things can just come in and out of your life unexpectedly? One minute...",
-    "image": "photos/timing.png"
+    "title": "creativity & attention",
+    "date": "August 04, 2023",
+    "slug": "creativity-attention",
+    "excerpt": "These days it's been hard for me to be creative. I don't remember the last time I picked...",
+    "image": "photos/creativity.jpg"
   },
   {
     "title": "weakness & vulnerability",
@@ -238,18 +56,123 @@
     "image": "photos/weakness.jpg"
   },
   {
-    "title": "welcome & hello",
-    "date": "April 26, 2020",
-    "slug": "welcome-hello",
-    "excerpt": "Welcome to my corner. In this season of my life, this is a space for me...",
-    "image": "photos/welcome.jpg"
-  },
-  {
     "title": "wonder & whatever",
     "date": "April 29, 2023",
     "slug": "wonder-whatever",
     "excerpt": "At the very start of this year I started a new journal to write down everything I do everyday so I don't...",
     "image": "photos/wonder.jpg"
+  },
+  {
+    "title": "new & beautiful",
+    "date": "January 30, 2023",
+    "slug": "new-beautiful",
+    "excerpt": "Gosh I feel like I'm forgetting how to do this again—it's been a while. Can't say I have anything particular...",
+    "image": "photos/new.jpg"
+  },
+  {
+    "title": "seeds & harvest",
+    "date": "December 14, 2022",
+    "slug": "seeds-harvest",
+    "excerpt": "As I was sitting and reflecting last night, I kept getting this reoccurring theme of a harvest...",
+    "image": "photos/seeds.jpg"
+  },
+  {
+    "title": "grades & identity",
+    "date": "December 03, 2022",
+    "slug": "grades-identity",
+    "excerpt": "It seems like such a stupid thing to talk about grades on here. It seems like such an insignificant...",
+    "image": "photos/grades.jpg"
+  },
+  {
+    "title": "home & growth",
+    "date": "November 26, 2022",
+    "slug": "home-growth",
+    "excerpt": "I can't say I know what I'm gonna write about right now, but I do feel like there is something to be written...",
+    "image": "photos/home.jpg"
+  },
+  {
+    "title": "time & abundance",
+    "date": "November 19, 2022",
+    "slug": "time-abundance",
+    "excerpt": "I was having a really good conversation yesterday and I've realized something pretty amazing is happening...",
+    "image": "photos/time.jpg"
+  },
+  {
+    "title": "life & updates",
+    "date": "November 18, 2022",
+    "slug": "life-updates",
+    "excerpt": "Gosh, it's been a minute. It's been a long time and I can't say I know exactly what drew me back to this. I...",
+    "image": "photos/life.jpg"
+  },
+  {
+    "title": "blogs & fingerprints",
+    "date": "July 19, 2020",
+    "slug": "blogs-fingerprints",
+    "excerpt": "How our digital presence leaves lasting impressions...",
+    "image": "photos/blogs.jpg"
+  },
+  {
+    "title": "timing & season",
+    "date": "July 18, 2020",
+    "slug": "timing-season",
+    "excerpt": "Isn't it crazy how people and things can just come in and out of your life unexpectedly? One minute...",
+    "image": "photos/timing.jpg"
+  },
+  {
+    "title": "books & reading",
+    "date": "July 17, 2020",
+    "slug": "books-reading",
+    "excerpt": "Today I was really reluctant to be pulled aside to start writing this. The thing about today was...",
+    "image": "photos/books.jpg"
+  },
+  {
+    "title": "texting & reconnecting",
+    "date": "July 16, 2020",
+    "slug": "texting-reconnecting",
+    "excerpt": "Today was a day for <strong>reconnection</strong>. Relationship rebuilding and reaching out...",
+    "image": "photos/texting.jpg"
+  },
+  {
+    "title": "present & intentional",
+    "date": "July 15, 2020",
+    "slug": "present-intentional",
+    "excerpt": "Today I was gonna write about something completely different but I felt compelled to write this after a...",
+    "image": "photos/present.jpg"
+  },
+  {
+    "title": "running & biking",
+    "date": "July 14, 2020",
+    "slug": "running-biking",
+    "excerpt": "It's been a little bit over a week and I'm really starting to run out of ideas here. I think",
+    "image": "photos/running.jpg"
+  },
+  {
+    "title": "selfishness & repentance",
+    "date": "July 13, 2020",
+    "slug": "selfishness-repentance",
+    "excerpt": "About an hour ago I was sitting and I was thinking of something to write about and couldn't think of anything...",
+    "image": "photos/selfishness.jpg"
+  },
+  {
+    "title": "love & thank you",
+    "date": "July 12, 2020",
+    "slug": "love-thankyou",
+    "excerpt": "Dear Heavenly Father, Thank you for such a beautiful day today. It's been a minute since...",
+    "image": "photos/love.jpg"
+  },
+  {
+    "title": "likes & followers",
+    "date": "July 11, 2020",
+    "slug": "likes-followers",
+    "excerpt": "Today's post is gonna come super easily to me, I feel like I've talked about this a lot over the last two...",
+    "image": "photos/likes.jpg"
+  },
+  {
+    "title": "silence & solitude (ii)",
+    "date": "July 10, 2020",
+    "slug": "ssii",
+    "excerpt": "Ever since I first started practicing prayer and listening in the...",
+    "image": "photos/ss.jpg"
   },
   {
     "title": "word & direction",
@@ -259,11 +182,25 @@
     "image": "photos/word.jpg"
   },
   {
-    "title": "words & phrases (i)",
-    "date": "May 20, 2020",
-    "slug": "wpi",
-    "excerpt": "Words and phrases that God's put on my heart today...",
-    "image": "photos/words.jpg"
+    "title": "listening & learning",
+    "date": "July 08, 2020",
+    "slug": "listening-learning",
+    "excerpt": "The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of...",
+    "image": "photos/listening.jpg"
+  },
+  {
+    "title": "conversation & hunger",
+    "date": "July 07, 2020",
+    "slug": "conversation-hunger",
+    "excerpt": "Today I'm gonna do a Stream of Consciousness exercise so I'm just gonna write the first thing that comes to...",
+    "image": "photos/conversations.jpg"
+  },
+  {
+    "title": "mindset & mentality",
+    "date": "July 06, 2020",
+    "slug": "mindset-mentality",
+    "excerpt": "I really have no idea what to write about so I'll just start with my day and then I'll probably get off track...",
+    "image": "photos/mindset.jpg"
   },
   {
     "title": "writing & change",
@@ -271,5 +208,68 @@
     "slug": "writing-change",
     "excerpt": "Writing is hard sometimes. Right now I feel inspired to do more: I want to write...",
     "image": "photos/writing.jpg"
+  },
+  {
+    "title": "success & loss",
+    "date": "June 18, 2020",
+    "slug": "success-loss",
+    "excerpt": "The following is my final English assignment for my '19-20 school year. It was to answer...",
+    "image": "photos/success.jpg"
+  },
+  {
+    "title": "quarantine & purpose",
+    "date": "June 14, 2020",
+    "slug": "quarantine-purpose",
+    "excerpt": "Wow it's been a while but I'm back. I'm gonna be honest, it's been more difficult to listen for God these...",
+    "image": "photos/quarantine.jpg"
+  },
+  {
+    "title": "words & phrases (i)",
+    "date": "May 20, 2020",
+    "slug": "wpi",
+    "excerpt": "Words and phrases that God's put on my heart today...",
+    "image": "photos/words.jpg"
+  },
+  {
+    "title": "antron & unforgiveness",
+    "date": "May 18, 2020",
+    "slug": "antron-unforgiveness",
+    "excerpt": "The journey of forgiveness and healing...",
+    "image": "photos/antron.jpg"
+  },
+  {
+    "title": "off days & fear",
+    "date": "May 10, 2020",
+    "slug": "offdays-fear",
+    "excerpt": "Everyone has those 'on days' where everything is going real great and everything's in line...",
+    "image": "photos/offdays.jpg"
+  },
+  {
+    "title": "healing & miracles",
+    "date": "April 30, 2020",
+    "slug": "healing-miracles",
+    "excerpt": "A few months ago I posted something on my Instagram story asking for prayer. Not for myself but...",
+    "image": "photos/healing.jpg"
+  },
+  {
+    "title": "brothers & pillows",
+    "date": "April 29, 2020",
+    "slug": "brothers-pillows",
+    "excerpt": "My brother’s name is Jeremiah and he’s 10 years old. I am 6 whole years older than he is...",
+    "image": "photos/bp.jpg"
+  },
+  {
+    "title": "silence & solitude (i)",
+    "date": "April 26, 2020",
+    "slug": "ssi",
+    "excerpt": "Yesterday I sat in a closet for over an hour in silence. I sat there just listening. Listening...",
+    "image": "photos/ss.jpg"
+  },
+  {
+    "title": "welcome & hello",
+    "date": "April 26, 2020",
+    "slug": "welcome-hello",
+    "excerpt": "Welcome to my corner. In this season of my life, this is a space for me...",
+    "image": "photos/welcome.jpg"
   }
 ]

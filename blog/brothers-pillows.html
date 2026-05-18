@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>brothers & pillows — Isaiah's Corner</title>
+  <meta name="description" content="My brother’s name is Jeremiah and he’s 10 years old. I am 6 whole years older than he is...">
+  <meta property="og:title" content="brothers & pillows — Isaiah's Corner">
+  <meta property="og:description" content="My brother’s name is Jeremiah and he’s 10 years old. I am 6 whole years older than he is...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/brothers-pillows.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/bp.jpg">
+  <meta property="article:published_time" content="2020-04-29">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">brothers &amp; pillows</h1>
-                    <div class="post-meta">
-                        <span class="post-date">April 29, 2020</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/bp.jpg" alt="Featured Image" class="post-image">
-<p>My <strong>brother&#39;s</strong> name is Jeremiah and he&#39;s 10 years old. I am 6 <em>whole</em> years older than he is, but there are times where God sits me down and shows me how much of a little kid I am.  </p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">April 29, 2020</p>
+        <h1 class="post-header__title">brothers & pillows</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/bp.jpg" alt="brothers &amp; pillows" loading="lazy">
+
+      <div class="post-body">
+        <p>My <strong>brother&#39;s</strong> name is Jeremiah and he&#39;s 10 years old. I am 6 <em>whole</em> years older than he is, but there are times where God sits me down and shows me how much of a little kid I am.  </p>
 <p>Honestly, I&#39;m a pretty sucky older <strong>brother</strong>.. Last night Jeremiah and I were up late, wayy past his bedtime, we were playing around and as usual it went a little out of hand. We always like to take each others&#39; <strong>pillows</strong> and hide them or we try and scare each other (or both), and pretty much always turns to us tickling each other or something along those lines.  </p>
 <p>Last night I took his one of his many <strong>pillows</strong> and I threw it downstairs into the living room. I know, I&#39;m a terrible <strong>brother</strong>, but that&#39;s not even the worst part. My dad comes out just as Jeremiah was going to get his <strong>pillow</strong>. He then continues to get mad at Jeremiah about how late it is and how loud he was being and saying it all very loudly as Jeremiah was trying to explain how his amazing older <strong>brother</strong> (he didn&#39;t say that but he was talking about me), was the one that threw his <strong>pillow</strong> downstairs in the first place. At this point, Jeremiah&#39;s crying and all <em>I</em> can do is stare at my dark ceiling, knowing that it was 100% my fault. I mean my dad could&#39;ve handled the whole thing better, but I can make another post about my parents&#39; parenting. After he gets his <strong>pillow</strong>, my <strong>brother</strong> walks into our room and I haven&#39;t heard him crying this hard in a while. I&#39;m silent. I feel terrible. I know I should apologize, but in that moment all I do is stare at the darkness. I wait until his crying stops for a moment and I say, &quot;I&#39;m sorry Jeremiah.&quot; Slowly and through his tears he says,</p>
 <p><strong>&quot;It&#39;s ok.&quot;</strong></p>
@@ -49,21 +72,28 @@
 <p>As I thinking last night about writing this, I became overwhelmed with gratitude that I even came to the point of this realization. I&#39;ve been asking myself every day, &quot;How can I listen for God today?&quot; One day it&#39;s in a closet and another through my own <strong>brother</strong>, and it&#39;s insane how humbled I am from this. I&#39;m sure thousands of moments like this have just slipped right past me because I wasn&#39;t listening.  </p>
 <p>I&#39;m a terrible <strong>brother</strong>, but I&#39;m working on it. Just thankful that I have someone to look up to. Thanks for showing me how to be a good <strong>brother</strong> Jeremiah, love you.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

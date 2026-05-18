@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sight & goals — Isaiah's Corner</title>
+  <meta name="description" content="This first week of Summer has been rough in ways that I can't fully describe. I think...">
+  <meta property="og:title" content="sight & goals — Isaiah's Corner">
+  <meta property="og:description" content="This first week of Summer has been rough in ways that I can't fully describe. I think...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/sight-goals.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/sight.jpg">
+  <meta property="article:published_time" content="2025-06-01">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">sight &amp; goals</h1>
-                    <div class="post-meta">
-                        <span class="post-date">June 01, 2025</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/sight.jpg" alt="Featured Image" class="post-image">
-<p>This first week of Summer has been rough in ways that I can&#39;t fully describe. I think on paper it&#39;s gone real well—I&#39;ve been starting on every single one of my <strong>goals</strong> for the summer and everything else has been going smoothly. The other kids at work have been really kind, I&#39;ve gotten to run a bit, I&#39;ve been learning to cook a ton, I&#39;ve gotten to network some :), and got plugged into some Christian community here. And I think if all of those things were what was truly important I&#39;d be satisfied. But to be completely honest, when Friday rolled around I felt like I was just losing <strong>sight</strong> of things.</p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">June 01, 2025</p>
+        <h1 class="post-header__title">sight & goals</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/sight.jpg" alt="sight &amp; goals" loading="lazy">
+
+      <div class="post-body">
+        <p>This first week of Summer has been rough in ways that I can&#39;t fully describe. I think on paper it&#39;s gone real well—I&#39;ve been starting on every single one of my <strong>goals</strong> for the summer and everything else has been going smoothly. The other kids at work have been really kind, I&#39;ve gotten to run a bit, I&#39;ve been learning to cook a ton, I&#39;ve gotten to network some :), and got plugged into some Christian community here. And I think if all of those things were what was truly important I&#39;d be satisfied. But to be completely honest, when Friday rolled around I felt like I was just losing <strong>sight</strong> of things.</p>
 <p>My expectations for this summer were sky-high (I think if you know me at all you&#39;d know I&#39;m a practical idealist), and my eyes have been much bigger than my stomach. I wanna balance all of these <strong>goals</strong> with work with fun with discipline, and in the midst of this great balancing act, I&#39;ve lost <strong>sight</strong>. Not that I think <strong>goals</strong> are bad, nor do I think doing a lot of things is bad, but I think for me I lost track of what it was all for. It was Friday night in my room and I was staring at my ceiling with one question staring back at me: <em>What am I living for?</em></p>
 <p>Is it myself? Is it the people around me? Is it something Greater?</p>
 <p>These <strong>goals</strong> of mine have pushed me, yes, but they&#39;ve pushed me to focus more and more on something that fails: myself. Call it pride, call it whatever you will, but I think I&#39;ve had this idea that I have to be better because that&#39;s the expectation I&#39;ve put on myself—I should know better, act better, be better. My <strong>sight</strong> has been locked in on me. Me, me me. I guess that&#39;s fine, but how can I live that way knowing that there <em>is</em> something so much better and greater than I. I think it&#39;s super ironic that my last post, characterizing this <a href="https://www.isaiahscorner.com/blog/summer-love.html">summer</a>, was all about loving like Jesus and here I am not knowing the first thing about what that looks like.</p>
@@ -49,21 +72,28 @@
 <p>Moral of the story: I suck really bad, and I forgot that. So instead of focusing so much on myself to fix what I know I can&#39;t, I need to lock my <strong>sight</strong> on the one who can. That&#39;s the real <strong>Goal</strong>. Everything else will fall into place.</p>
 <p>See y&#39;all next week.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

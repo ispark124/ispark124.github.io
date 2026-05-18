@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wonder & whatever — Isaiah's Corner</title>
+  <meta name="description" content="At the very start of this year I started a new journal to write down everything I do everyday so I don't...">
+  <meta property="og:title" content="wonder & whatever — Isaiah's Corner">
+  <meta property="og:description" content="At the very start of this year I started a new journal to write down everything I do everyday so I don't...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/wonder-whatever.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/wonder.jpg">
+  <meta property="article:published_time" content="2023-04-29">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">wonder &amp; whatever</h1>
-                    <div class="post-meta">
-                        <span class="post-date">April 29, 2023</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/wonder.jpg" alt="Featured Image" class="post-image">
-<p>At the very start of this year I started a new journal to write down everything I do everyday so I don&#39;t forget anything. Last semester went by so fast and it feels like I only remember a few moments or memories—I don&#39;t want to forget this semester like that. I just finished the first journal I started this year and reading back everything that&#39;s happened since January 1st to now, April 29th, is wild. Even though I&#39;ve been keeping record of my everyday activities, I haven&#39;t exactly been keeping up with my thoughts and emotions throughout it all and I don&#39;t want to lose that too. For some reason, I&#39;ve had so many conversations with so many different people in this past week about this blog being that place for me to store these thoughts and it&#39;s too many conversations for me not to write. So I&#39;m back. I think.  </p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">April 29, 2023</p>
+        <h1 class="post-header__title">wonder & whatever</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/wonder.jpg" alt="wonder &amp; whatever" loading="lazy">
+
+      <div class="post-body">
+        <p>At the very start of this year I started a new journal to write down everything I do everyday so I don&#39;t forget anything. Last semester went by so fast and it feels like I only remember a few moments or memories—I don&#39;t want to forget this semester like that. I just finished the first journal I started this year and reading back everything that&#39;s happened since January 1st to now, April 29th, is wild. Even though I&#39;ve been keeping record of my everyday activities, I haven&#39;t exactly been keeping up with my thoughts and emotions throughout it all and I don&#39;t want to lose that too. For some reason, I&#39;ve had so many conversations with so many different people in this past week about this blog being that place for me to store these thoughts and it&#39;s too many conversations for me not to write. So I&#39;m back. I think.  </p>
 <p>Looking back through my journal, the main thought that&#39;s been on my mind is from a conversation I had with a friend way back in March. We were just talking about the normalcy of driving and how it used to be this insane, daunting, adult thing that we got to do and how every drive was full of <strong>wonder</strong>, and now it&#39;s become <strong>whatever</strong>.</p>
 <p>&quot;When did things become <strong>whatever</strong>?&quot;</p>
 <p>Because I started reading my journal from the beginning (that&#39;s how reading works duh), I saw the slow transition in my writing go from passionate excitement of everyday things to almost repetitive shorthand. The thing is, my writing is just a reflection of the way I&#39;m processing these events so really, I&#39;ve turned the <strong>wonder</strong> of my life into something mundane. I think I&#39;ve forgotten a lot about how much my life has changed and how much I&#39;ve grown because of the opportunities I&#39;ve been presented with in this past year—it&#39;s all kinda become <strong>whatever</strong>.  </p>
 <p>Some hometown friends came to visit me at school last weekend, and inviting them into this new part of my new life reminded me heavily of the not &quot;<strong>whatever-ness</strong>&quot; of my life. This intersection of old and new created such a sharp contrast; I was looking at my life through the perspective of my friends and it was like everything was new again. Everything that had become so normal to me—taken for granted—found its beauty and worth again. Thinking about it now, the same exact thing happened earlier in this semester and even last semester. Some of these goons here at school have never seen the leaves changing colors LOL. Or never seen snow. Or never seen fireflies. These incredible, beautiful things have just become <strong>whatever</strong> to me, because I&#39;ve seen them all my life. But no funny, not to be corny, I have actually never appreciated the leaves changing colors more in my life than I did last semester. My friends brought back the newness and wide-eyed joy of first seeing the snow fall or the excitement of seeing a firefly. These Florida and Cali kids are changing me...  </p>
 <p>It&#39;s funny, I also just had a conversation today at lunch about how youth can always be a mindset. It&#39;s the choice to remain with the child-like <strong>wonder</strong> about everything, and I really do think that&#39;s such an amazing thing to hold onto in a world that tends towards <strong>whatever-ness</strong>. I&#39;m honestly really looking forward to this summer and even next semester when I plan to join a bunch of random stuff and take advantage of all that&#39;s around me. Hopefully until then I&#39;ll be abiding in <strong>wonder</strong>.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>running & biking — Isaiah's Corner</title>
+  <meta name="description" content="It's been a little bit over a week and I'm really starting to run out of ideas here. I think">
+  <meta property="og:title" content="running & biking — Isaiah's Corner">
+  <meta property="og:description" content="It's been a little bit over a week and I'm really starting to run out of ideas here. I think">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/running-biking.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/running.jpg">
+  <meta property="article:published_time" content="2020-07-14">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">running &amp; biking</h1>
-                    <div class="post-meta">
-                        <span class="post-date">July 14, 2020</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/running.jpg" alt="Featured Image" class="post-image">
-<p>It&#39;s been a little bit over a week and I&#39;m really starting to <strong>run</strong> out of ideas here. I think it&#39;s good to make this a habit for me, writing on here every day, but it feels like a really long <strong>run</strong> that won&#39;t really end.  </p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">July 14, 2020</p>
+        <h1 class="post-header__title">running & biking</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/running.jpg" alt="running &amp; biking" loading="lazy">
+
+      <div class="post-body">
+        <p>It&#39;s been a little bit over a week and I&#39;m really starting to <strong>run</strong> out of ideas here. I think it&#39;s good to make this a habit for me, writing on here every day, but it feels like a really long <strong>run</strong> that won&#39;t really end.  </p>
 <p>Recently I&#39;ve been trying to live out a better story and I think today I kinda did just that. Not that I did anything crazy or anything, but I went out and did something spontaneous, which is something I haven&#39;t done for a while. After my practice in the morning for me and a few other kids that aren&#39;t cleared to <strong>run</strong> with the school yet, I thought I&#39;d <strong>bike</strong> over to the middle school and catch the end of practice with the rest of my team and talk with my coach. When I got there, my team wasn&#39;t there but on the way there I ran into a few of my friends who were also heading to the middle school. I&#39;ve known these guys for a while but it&#39;s never really been anything super close or anything, just people to be around in school. Soon we got to the middle school and a few other kids were pulling up, apparently they were all gonna <strong>run</strong> and work out together. My team or coach wasn&#39;t on the field, but the girls soccer team was on and both me and the other group of guys ended up coming for no reason. They couldn&#39;t <strong>run</strong> with the girls on the field and I missed my team leaving. We ended up talking some more and they were deciding where to go to <strong>run</strong>. I had no plan of going with these guys but an opportunity presented itself and I wanted another story to add to my book and wanting more relationship so I went with them.  </p>
 <p>We decided to <strong>bike</strong> to River Dell high school because I knew that their track was open because I went yesterday so we <strong>biked</strong>. Now the <strong>bike</strong> ride was something I knew I was gonna write about later. These kids rode crazy. Recently I&#39;ve been doing my fair share of <strong>bike</strong> riding, probably more than I&#39;ve been <strong>running</strong>, but that&#39;s only been to ride around without a particular direction and just enjoying the ride. These guys rode as if they were trying to die. Obviously they know exactly when to cross streets and what side of the road to be on, they&#39;re way too smart to actually get hit, but the way they rode is nothing like what I&#39;d ride. I really don&#39;t like going on long <strong>bike</strong> rides with my family because I have to slow down so often, but with these guys I felt amazing. We&#39;d weave through cars (not on sidewalks?!), cross through streets (not on crosswalks?!), and speed through it all. I felt alive.  </p>
 <p>Well actually once we got to the high school, some guy in a golf cart (probably their trainor because ours rides around in one too), told us that we had to get off campus because their teams were practicing there. That was great, we <strong>biked</strong> there for no reason. So we decided to go to this other field that my friend originally wanted to go to. Once again riding through the streets until we got where we wanted to be. I knew they were there to <strong>run</strong> and play soccer which worked out perfectly because I only ran a few miles right before at practice, and I was planning on <strong>running</strong> again later at night to get a higher mileage for the day. Instead I thought I&#39;d <strong>run</strong> few more miles with them.  </p>
 <p>I ended up spending a few more hours with them playing soccer, and eventually <strong>biking</strong> back to the middle school, and doing it all before 12:00. Looking back, I guess it doesn&#39;t look like all that much. If it was anyone else, it&#39;d look like a normal day of hanging out with some friends. But for me I think it was more. It was me stepping out to do something intentional. To put something on the page of my book. I may not be booking a flight the day of and flying out just for the fun of it, but this is intentional steps towards doing more. I may not be super close with these guys but more relationship can begin to form and actually I think one of the guys is gonna invite me next time they go to <strong>run</strong>. I may not remember this day at all in a few years down the line, maybe I will, but what will matter then is how I&#39;ll be living my life. Will it be like I did today, stepping out without any plans and <strong>biking</strong> with zeal, or will I decide to go home because I didn&#39;t bring food and I feel tired? Hopefully I&#39;ll be living a real life and I think everyone knows which of the two that is.  </p>
 <p>Earlier I said that writing every day is like a really long <strong>run</strong> that won&#39;t end. I&#39;m realizing now (not for the first time), that all I have to do is be intentional with my day and be able to listen in every circumstance. If I can even learn from these guys, who I can say are pretty far from choosing to go to church over a houseparty, that I can live a little more freely even in the way that I <strong>bike</strong>, how hard can listening for God be? Also really long <strong>runs</strong>? I&#39;m a distance <strong>runner</strong>, I was born for this ish.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

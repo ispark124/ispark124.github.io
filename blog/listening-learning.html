@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>listening & learning — Isaiah's Corner</title>
+  <meta name="description" content="The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of...">
+  <meta property="og:title" content="listening & learning — Isaiah's Corner">
+  <meta property="og:description" content="The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/listening-learning.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/listening.jpg">
+  <meta property="article:published_time" content="2020-07-08">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">listening &amp; learning</h1>
-                    <div class="post-meta">
-                        <span class="post-date">July 08, 2020</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/listening.jpg" alt="Featured Image" class="post-image">
-<p>The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of something to write about. I was thinking I should do another writing exercise today like yesterday, but I couldn&#39;t find one online that I liked or wasn&#39;t too cheesy. But also I feel like I had a pretty good day today that I wanna talk about.  </p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">July 08, 2020</p>
+        <h1 class="post-header__title">listening & learning</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/listening.jpg" alt="listening &amp; learning" loading="lazy">
+
+      <div class="post-body">
+        <p>The hardest part of writing every day is the beginning. I have to stare at this blank screen and think of something to write about. I was thinking I should do another writing exercise today like yesterday, but I couldn&#39;t find one online that I liked or wasn&#39;t too cheesy. But also I feel like I had a pretty good day today that I wanna talk about.  </p>
 <p>Today I did something a little different when I was getting ready. Normally I have a reminder set for my phone every day that asks, &quot;How can I <strong>listen</strong> to God today?&quot; And honestly, I don&#39;t really pay attention to it anymore because it shows up every day, but today I really thought about it as I was getting ready to go to practice. I thought about it and was asking God to speak to me, which I know He does, and help me to be willing to <strong>listen</strong>. I&#39;m sad to say that that&#39;s pretty much the only time today that I thought about that hahha, but I do think that if I make that a <em>real</em> habit, that&#39;s something that I can always rely on to <strong>listen</strong> for God. So I&#39;m in the very very beginning stages of developing a habit.  </p>
 <p>Anyways, practice sucked because the weather all week has been <em>disgustingly</em> humid, but yeah just normal running stuff. I really wanna start talking more about my faith, but I also don&#39;t wanna be shoving it down people&#39;s throats to the point where no one wants to associate themselves with it. For now though, I just wanna show my teammates love and support them and then I know God will provide opportunities for me to present Himself.  </p>
 <p>All of my siblings went to this &quot;summer school&quot; type place a family friend has started. It&#39;s really just like 3 hours where they and a couple other kids can go and get their work done away from some distractions. That leaves the house free for just me, and I guess my parents but they don&#39;t make a lot of noise hahah. I&#39;m finding that I want more space for time alone. Even if I may be alone in a room in my house I don&#39;t feel as if I am. I know any second my brother could pop through the door asking if he wants to play a game, or as I lay down I can hear the tv playing in the background. I know the importance of family and I want more relationship like I talked about yesterday, but I think I&#39;m longing for not necessarily isolation but a peaceful space. Boundaries and balance between all of that is being really hard to find.  </p>
 <p>I went to my best friend&#39;s house today and we watched a movie we&#39;ve been meaning to watch for a while, <em>Catch Me If You Can</em>, which is a movie based on a true story. Basically the main character is an expert con-man who&#39;s posed as an airline pilot, a doctor, a lawyer, and conned his way to over $2.5 million, and an FBI agent is chasing him everywhere. Anyways, great movie, you got Tom Hanks; Leonardo DiCaprio; Christopher Walken; and a lot of guys, I liked it a lot. Jake (my friend) and I also ended up messing around with his guitars for a bit and went out for a walk. I feel like even though we did very normal friend stuff, I feel a lot closer to him. And I know you read this Jake, hahah so yeah I really appreciate us even just sitting and watching GMM like we did in probably 6th grade. I&#39;m probably not the only one like this but I think it&#39;s moments like those where you and your friend are just being stupid and making dumb jokes that are the kind of things you don&#39;t really forget. I&#39;m gonna be laughing about jokes Jake and I have made for a long time. From <em>heavysaber</em>, one of the first things we&#39;ve died laughing about, to <em>mm Tom Hanks</em>.  </p>
 <p>I don&#39;t think I&#39;ve <strong>learned</strong> all that much today. But you know what? I don&#39;t care. I had a great day and had a lot of fun. I&#39;m starting new things and strengthening relationships and sometimes I think that&#39;s better than some kind of lesson I would&#39;ve <strong>learned</strong> on my own. I&#39;m gonna continue to <strong>listen</strong> for God <em>and</em> enjoy life, but now I&#39;m starting to think that between the two, there isn&#39;t much of a difference anyways.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

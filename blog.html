@@ -1,61 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaiah's Corner - Blog</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Isaiah's Corner</title>
+  <meta name="description" content="All posts by Isaiah Park — thoughts on faith, identity, and the everyday.">
+  <meta property="og:title" content="Blog — Isaiah's Corner">
+  <meta property="og:description" content="All posts by Isaiah Park — thoughts on faith, identity, and the everyday.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/homepage.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="blog/logo.png" alt="Logo" class="logo-image">
-                </a>
-                <div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <div class="container">
-            <div class="blog-header">
-                <h1 class="title">All Posts</h1>
-            </div>
-            <div class="posts-grid">
-                <!-- Posts will be dynamically loaded here -->
-            </div>
-            <div class="pagination">
-                <!-- Page numbers will be dynamically loaded here -->
-            </div>
-        </div>
-    </main>
+  <a class="skip-link" href="#main">skip to content</a>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
 
-    <script src="script.js"></script>
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <div class="container">
+
+      <header class="blog-page-header">
+        <div class="blog-page-header__text">
+          <h1 class="blog-page-header__title">all posts</h1>
+          <p class="blog-page-header__desc">thoughts on faith, identity, and the everyday.</p>
+        </div>
+        <button
+          class="search-toggle-btn"
+          id="searchToggle"
+          aria-label="Toggle search"
+          aria-expanded="false"
+          aria-controls="searchWrap"
+        >
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="7.5" cy="7.5" r="5"/>
+            <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+          </svg>
+        </button>
+      </header>
+
+      <!-- Search (collapsed by default) -->
+      <div class="search-wrap" id="searchWrap" role="search">
+        <label for="searchInput" class="sr-only">search posts</label>
+        <input
+          class="search-input"
+          id="searchInput"
+          type="search"
+          placeholder="search posts…"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <svg class="search-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="7.5" cy="7.5" r="5"/>
+          <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+        </svg>
+      </div>
+
+      <div class="posts-grid" id="blogPosts" aria-live="polite" aria-label="Blog posts">
+        <!-- Populated by script.js -->
+      </div>
+
+      <p class="search-empty" id="searchEmpty" role="status">no posts found.</p>
+
+      <nav class="pagination" id="pagination" aria-label="Post pages">
+        <!-- Populated by script.js -->
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
-</html> 
+</html>

@@ -1,501 +1,506 @@
-// Add this at the beginning of your script.js file
-document.addEventListener('DOMContentLoaded', function() {
-    // Add fade-in effect
-    const mainContent = document.querySelector('.main');
-    if (mainContent) {
-        mainContent.classList.add('fade-in');
+/* ============================================================
+   Isaiah's Corner — script.js
+   Page-scoped. No global managers running on every page.
+   ============================================================ */
+
+'use strict';
+
+/* ── Shared utilities ─────────────────────────────────────── */
+
+function setYear() {
+  document.querySelectorAll('.js-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ── Active nav link ──────────────────────────────────────── */
+
+function setActiveNav() {
+  const path = window.location.pathname;
+  document.querySelectorAll('.nav__link, .nav-overlay__link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    const isHome     = (path === '/' || path === '/index.html');
+    const linkIsHome = (href === '/' || href === '/index.html');
+
+    if (isHome && linkIsHome) {
+      link.classList.add('active');
+    } else if (!isHome && href !== '/' && path.includes(href.replace(/^\//, ''))) {
+      link.classList.add('active');
     }
+  });
+}
 
-    // Set active navigation link
-    const currentPage = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav__link, .topnav a:not(.icon)');
-    
-    // First, remove all active classes
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
+/* ── Mobile nav ───────────────────────────────────────────── */
 
-    // Then set active class only for the current page
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        
-        // Normalize the paths for comparison
-        const normalizedHref = href.replace(/^\.\//, '').replace(/\/$/, '');
-        const normalizedCurrentPage = currentPage.replace(/^\.\//, '').replace(/\/$/, '');
-        
-        // For home page
-        if (normalizedCurrentPage === '' || normalizedCurrentPage === 'index.html') {
-            if (normalizedHref === 'index.html' || normalizedHref === '') {
-                link.classList.add('active');
-            }
-        } 
-        // For other pages
-        else if (normalizedCurrentPage === normalizedHref) {
-            link.classList.add('active');
-        }
-    });
+function initMobileNav() {
+  const toggle  = document.getElementById('navToggle');
+  const overlay = document.getElementById('navOverlay');
+  const close   = document.getElementById('navClose');
+  if (!toggle || !overlay || !close) return;
 
-    // Add blog-page class to body if we're on the blog page
-    if (currentPage.includes('blog.html')) {
-        document.body.classList.add('blog-page');
-    }
+  let lastFocus = null;
 
-    // Art page category filtering
-    const artItems = document.querySelectorAll('.art-item');
-
-    // Set dynamic copyright year
-    const yearSpan = document.getElementById('copyright-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-});
-
-function hamburger() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
+  function openNav() {
+    lastFocus = document.activeElement;
+    overlay.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    close.focus();
   }
 
-// Blog post handling
-class BlogManager {
-    constructor() {
-        this.posts = [];
-        this.currentPage = 1;
-        this.postsPerPage = 9;
-        this.isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
-        this.currentPostSlug = window.location.pathname.split('/').pop().replace('.html', '');
+  function closeNav() {
+    overlay.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  toggle.addEventListener('click', openNav);
+  close.addEventListener('click', closeNav);
+
+  overlay.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  overlay.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const focusable = overlay.querySelectorAll(
+      'button, a[href], input, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
-
-    async loadPosts() {
-        try {
-            // Fetch the blog posts metadata from a JSON file
-            // Use relative path for GitHub Pages compatibility
-            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
-            const response = await fetch(`${basePath}posts.json`);
-            this.posts = await response.json();
-            
-            // Sort posts by date (newest first)
-            this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Render posts and pagination
-            this.renderPosts();
-            if (!this.isHomePage) {
-                this.renderPagination();
-            }
-
-            // Add navigation if we're on a blog post page
-            if (this.currentPostSlug && this.currentPostSlug !== 'blog') {
-                this.renderPostNavigation();
-            }
-        } catch (error) {
-            console.error('Error loading posts:', error);
-        }
-    }
-
-    renderPosts() {
-        const postsContainer = document.querySelector('.posts-grid');
-        if (!postsContainer) return;
-
-        // Clear existing posts
-        postsContainer.innerHTML = '';
-
-        // Determine how many posts to show
-        const postsToShow = this.isHomePage 
-            ? this.posts.slice(0, 3) // Show only 3 posts on home page
-            : this.posts.slice((this.currentPage - 1) * this.postsPerPage, this.currentPage * this.postsPerPage);
-
-        postsToShow.forEach(post => {
-            const postElement = this.createPostElement(post);
-            postsContainer.appendChild(postElement);
-        });
-    }
-
-    renderPagination() {
-        const paginationContainer = document.querySelector('.pagination');
-        if (!paginationContainer) return;
-
-        // Clear existing pagination
-        paginationContainer.innerHTML = '';
-
-        // Calculate total number of pages
-        const totalPages = Math.ceil(this.posts.length / this.postsPerPage);
-
-        // Create page numbers
-        for (let i = 1; i <= totalPages; i++) {
-            const pageNumber = document.createElement('div');
-            pageNumber.className = `page-number ${i === this.currentPage ? 'active' : ''}`;
-            pageNumber.textContent = i;
-            pageNumber.addEventListener('click', () => {
-                this.currentPage = i;
-                this.renderPosts();
-                this.renderPagination();
-                // Smooth scroll to top
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            paginationContainer.appendChild(pageNumber);
-        }
-    }
-
-    createPostElement(post) {
-        const article = document.createElement('article');
-        article.className = 'post-card';
-        article.innerHTML = `
-            <a href="blog/${post.slug}.html" class="post-link">
-                <div class="post-image">
-                    <img src="${post.image}" alt="${post.title}">
-                </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-date">${post.date}</span>
-                    </div>
-                    <h2 class="title">${post.title}</h2>
-                    <p class="post-excerpt">${post.excerpt}</p>
-                    <div class="post-footer">
-                        <span class="read-more">Read more →</span>
-                    </div>
-                </div>
-            </a>
-        `;
-        return article;
-    }
-
-    renderPostNavigation() {
-        const currentIndex = this.posts.findIndex(post => post.slug === this.currentPostSlug);
-        if (currentIndex === -1) return;
-
-        const prevPost = this.posts[currentIndex + 1]; // Next post in chronological order
-        const nextPost = this.posts[currentIndex - 1]; // Previous post in chronological order
-
-        const navigationContainer = document.createElement('div');
-        navigationContainer.className = 'post-navigation';
-        navigationContainer.innerHTML = `
-            <div class="post-navigation__inner">
-                ${prevPost ? `
-                    <a href="${prevPost.slug}.html" class="post-navigation__link post-navigation__link--prev">
-                        <span class="post-navigation__label">Previous Post</span>
-                        <span class="post-navigation__title">${prevPost.title}</span>
-                    </a>
-                ` : '<div></div>'}
-                ${nextPost ? `
-                    <a href="${nextPost.slug}.html" class="post-navigation__link post-navigation__link--next">
-                        <span class="post-navigation__label">Next Post</span>
-                        <span class="post-navigation__title">${nextPost.title}</span>
-                    </a>
-                ` : '<div></div>'}
-            </div>
-        `;
-
-        // Insert navigation before the footer
-        const footer = document.querySelector('.footer');
-        if (footer) {
-            footer.parentNode.insertBefore(navigationContainer, footer);
-        }
-    }
+  });
 }
 
-// Initialize blog manager
-const blogManager = new BlogManager();
+/* ── Header scroll backdrop ───────────────────────────────── */
 
-// Load posts when the page loads
+function initHeaderScroll() {
+  const header = document.querySelector('.header');
+  if (!header) return;
+
+  function update() {
+    header.classList.toggle('header--scrolled', window.scrollY > 40);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+/* ── Reading progress bar ─────────────────────────────────── */
+
+function initReadingProgress() {
+  const bar = document.getElementById('readingProgress');
+  if (!bar) return;
+
+  function update() {
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width  = Math.min(pct, 100) + '%';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+/* ── Search toggle ────────────────────────────────────────── */
+
+function initSearchToggle() {
+  const toggleBtn  = document.getElementById('searchToggle');
+  const searchWrap = document.getElementById('searchWrap');
+  const searchInput = document.getElementById('searchInput');
+  if (!toggleBtn || !searchWrap) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = searchWrap.classList.contains('search-wrap--open');
+    searchWrap.classList.toggle('search-wrap--open', !isOpen);
+    toggleBtn.classList.toggle('active', !isOpen);
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+    if (!isOpen && searchInput) searchInput.focus();
+  });
+}
+
+/* ── Fetch helper ─────────────────────────────────────────── */
+
+async function fetchJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+  return res.json();
+}
+
+function basePath() {
+  return window.location.pathname.includes('/blog/') ? '../' : '';
+}
+
+/* ── Post card HTML ───────────────────────────────────────── */
+
+function postCardHTML(post, linkPrefix = '/blog/') {
+  return `
+    <article class="post-card">
+      <a class="post-card__link" href="${linkPrefix}${escapeHtml(post.slug)}.html">
+        <div class="post-card__image">
+          <img src="${escapeHtml(post.image)}" alt="" loading="lazy">
+        </div>
+        <div class="post-card__body">
+          <p class="post-card__date">${escapeHtml(post.date)}</p>
+          <h2 class="post-card__title">${escapeHtml(post.title)}</h2>
+          <p class="post-card__excerpt">${escapeHtml(post.excerpt)}</p>
+          <div class="post-card__footer">
+            <span class="post-card__read-more">read more →</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  `;
+}
+
+/* ── Featured card HTML ───────────────────────────────────── */
+
+function featuredCardHTML(post, linkPrefix = '/blog/') {
+  return `
+    <a class="featured-card" href="${linkPrefix}${escapeHtml(post.slug)}.html">
+      <div class="featured-card__image">
+        <img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" loading="lazy">
+      </div>
+      <div class="featured-card__body">
+        <p class="featured-card__label">latest</p>
+        <p class="featured-card__date">${escapeHtml(post.date)}</p>
+        <h2 class="featured-card__title">${escapeHtml(post.title)}</h2>
+        <p class="featured-card__excerpt">${escapeHtml(post.excerpt)}</p>
+        <span class="featured-card__cta">read more →</span>
+      </div>
+    </a>
+  `;
+}
+
+/* ============================================================
+   HOME PAGE — featured latest + 2-col recent
+   ============================================================ */
+
+async function initHome() {
+  const container = document.getElementById('recentPosts');
+  if (!container) return;
+
+  try {
+    const posts = await fetchJSON(`${basePath()}posts.json`);
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const [featured, ...rest] = posts.slice(0, 3);
+
+    let html = '';
+
+    if (featured) {
+      html += featuredCardHTML(featured);
+    }
+
+    if (rest.length > 0) {
+      html += `<div class="posts-grid posts-grid--two">`;
+      html += rest.map(p => postCardHTML(p)).join('');
+      html += `</div>`;
+    }
+
+    container.innerHTML = html;
+  } catch (err) {
+    console.error('Could not load recent posts:', err);
+  }
+}
+
+/* ============================================================
+   BLOG INDEX — featured on page 1 + paginated grid + search
+   ============================================================ */
+
+async function initBlog() {
+  const grid        = document.getElementById('blogPosts');
+  const pagination  = document.getElementById('pagination');
+  const searchInput = document.getElementById('searchInput');
+  const searchEmpty = document.getElementById('searchEmpty');
+  if (!grid) return;
+
+  const PER_PAGE = 9;
+  let allPosts   = [];
+  let filtered   = [];
+  let page       = 1;
+
+  function isSearching() {
+    return searchInput && searchInput.value.trim() !== '';
+  }
+
+  function renderGrid(posts) {
+    if (posts.length === 0) {
+      grid.innerHTML = '';
+      if (searchEmpty) searchEmpty.style.display = 'block';
+      if (pagination)  pagination.innerHTML = '';
+      return;
+    }
+    if (searchEmpty) searchEmpty.style.display = 'none';
+
+    const start = (page - 1) * PER_PAGE;
+    const slice = posts.slice(start, start + PER_PAGE);
+
+    // Feature the first post on page 1 when not searching
+    if (page === 1 && !isSearching() && slice.length > 0) {
+      const [featured, ...rest] = slice;
+      grid.innerHTML = featuredCardHTML(featured) + rest.map(p => postCardHTML(p)).join('');
+    } else {
+      grid.innerHTML = slice.map(p => postCardHTML(p)).join('');
+    }
+
+    renderPagination(posts.length);
+  }
+
+  function renderPagination(total) {
+    if (!pagination) return;
+    const totalPages = Math.ceil(total / PER_PAGE);
+    if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+
+    let html = `
+      <button class="pagination__btn" id="prevBtn" ${page === 1 ? 'disabled' : ''} aria-label="Previous page">
+        ← prev
+      </button>
+    `;
+    for (let i = 1; i <= totalPages; i++) {
+      html += `
+        <button class="pagination__number ${i === page ? 'active' : ''}" data-page="${i}" aria-label="Page ${i}" aria-current="${i === page ? 'page' : 'false'}">
+          ${i}
+        </button>
+      `;
+    }
+    html += `
+      <button class="pagination__btn" id="nextBtn" ${page === totalPages ? 'disabled' : ''} aria-label="Next page">
+        next →
+      </button>
+    `;
+    pagination.innerHTML = html;
+
+    pagination.querySelector('#prevBtn').addEventListener('click', () => {
+      if (page > 1) { page--; renderGrid(filtered); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    });
+    pagination.querySelector('#nextBtn').addEventListener('click', () => {
+      if (page < totalPages) { page++; renderGrid(filtered); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    });
+    pagination.querySelectorAll('.pagination__number').forEach(btn => {
+      btn.addEventListener('click', () => {
+        page = parseInt(btn.dataset.page, 10);
+        renderGrid(filtered);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      page = 1;
+      filtered = q
+        ? allPosts.filter(p =>
+            p.title.toLowerCase().includes(q) ||
+            p.excerpt.toLowerCase().includes(q)
+          )
+        : allPosts;
+      renderGrid(filtered);
+    });
+  }
+
+  try {
+    allPosts = await fetchJSON(`${basePath()}posts.json`);
+    allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    filtered = allPosts;
+    renderGrid(filtered);
+  } catch (err) {
+    console.error('Could not load blog posts:', err);
+    grid.innerHTML = '<p style="color: var(--text-muted); font-style: italic; padding: 40px 0;">posts could not be loaded.</p>';
+  }
+}
+
+/* ============================================================
+   BLOG POST — prev/next navigation
+   ============================================================ */
+
+async function initPost() {
+  const navEl = document.getElementById('postNav');
+  if (!navEl) return;
+
+  const slug = window.location.pathname.split('/').pop().replace('.html', '');
+
+  try {
+    const posts = await fetchJSON(`${basePath()}posts.json`);
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const idx  = posts.findIndex(p => p.slug === slug);
+    if (idx === -1) return;
+
+    const prev = posts[idx + 1]; // older
+    const next = posts[idx - 1]; // newer
+
+    navEl.innerHTML = `
+      ${prev ? `
+        <a class="post-nav__item post-nav__item--prev" href="${escapeHtml(prev.slug)}.html">
+          <span class="post-nav__label">← previous</span>
+          <span class="post-nav__title">${escapeHtml(prev.title)}</span>
+        </a>
+      ` : '<span></span>'}
+      ${next ? `
+        <a class="post-nav__item post-nav__item--next" href="${escapeHtml(next.slug)}.html">
+          <span class="post-nav__label">next →</span>
+          <span class="post-nav__title">${escapeHtml(next.title)}</span>
+        </a>
+      ` : '<span></span>'}
+    `;
+  } catch (err) {
+    console.error('Could not load post navigation:', err);
+  }
+}
+
+/* ============================================================
+   ART & POETRY PAGE
+   ============================================================ */
+
+async function initArt() {
+  const grid = document.getElementById('artGrid');
+  if (!grid) return;
+
+  try {
+    const items = await fetchJSON(`${basePath()}art.json`);
+
+    grid.innerHTML = items.map(item => {
+      if (item.type === 'poem') {
+        const previewLines = item.content.split('\n').slice(0, 4).join('\n');
+        return `
+          <div class="art-item art-item--poem-card" role="button" tabindex="0" aria-label="Read poem: ${escapeHtml(item.title)}" data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
+            <div class="art-item__poem">
+              <h2 class="art-item__poem-title">${escapeHtml(item.title)}</h2>
+              <div class="art-item__poem-preview">${escapeHtml(previewLines)}</div>
+            </div>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="art-item" role="button" tabindex="0" aria-label="View artwork: ${escapeHtml(item.title)}" data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
+            <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          </div>
+        `;
+      }
+    }).join('');
+
+    grid.addEventListener('click', e => {
+      const card = e.target.closest('.art-item');
+      if (card) openModal(JSON.parse(card.dataset.item));
+    });
+
+    grid.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.art-item');
+        if (card) { e.preventDefault(); openModal(JSON.parse(card.dataset.item)); }
+      }
+    });
+
+  } catch (err) {
+    console.error('Could not load art items:', err);
+  }
+}
+
+/* ── Art modal ────────────────────────────────────────────── */
+
+function openModal(item) {
+  const existing = document.querySelector('.art-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.className  = 'art-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'modalTitle');
+
+  let body = '';
+  if (item.type === 'poem') {
+    body = `
+      <h2 class="art-modal__title" id="modalTitle">${escapeHtml(item.title)}</h2>
+      <div class="art-modal__poem-text">${escapeHtml(item.content)}</div>
+    `;
+  } else {
+    body = `
+      <h2 class="art-modal__title" id="modalTitle">${escapeHtml(item.title)}</h2>
+      ${item.date ? `<p class="art-modal__date">${escapeHtml(item.date)}</p>` : ''}
+      <img class="art-modal__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
+    `;
+  }
+
+  modal.innerHTML = `
+    <div class="art-modal__content">
+      <button class="art-modal__close" aria-label="Close">&times;</button>
+      <div class="art-modal__body">${body}</div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
+
+  const closeBtn = modal.querySelector('.art-modal__close');
+  closeBtn.focus();
+
+  function closeModal() {
+    modal.remove();
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  modal.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Tab') {
+      const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+}
+
+/* ============================================================
+   INIT — route to the right initializer
+   ============================================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    blogManager.loadPosts();
+  setYear();
+  setActiveNav();
+  initMobileNav();
+  initHeaderScroll();
+
+  const path = window.location.pathname;
+
+  if (path === '/' || path.endsWith('index.html')) {
+    initHome();
+  } else if (path.endsWith('blog.html')) {
+    initBlog();
+    initSearchToggle();
+  } else if (path.endsWith('art.html')) {
+    initArt();
+  } else if (path.includes('/blog/')) {
+    initPost();
+    initReadingProgress();
+  }
 });
-
-// Art Manager class
-class ArtManager {
-    constructor() {
-        this.artItems = [];
-        this.artGrid = document.getElementById('artGrid');
-    }
-
-    async loadArtItems() {
-        try {
-            // Use relative path for GitHub Pages compatibility
-            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
-            const response = await fetch(`${basePath}art.json`);
-            this.artItems = await response.json();
-            await this.renderArtItems();
-        } catch (error) {
-            console.error('Error loading art items:', error);
-        }
-    }
-
-    async renderArtItems() {
-        if (!this.artGrid) return;
-
-        this.artGrid.innerHTML = '';
-        
-        // Create and append all items first
-        const itemPromises = this.artItems.map(item => {
-            const artElement = this.createArtElement(item);
-            this.artGrid.appendChild(artElement);
-            
-            // For image items, wait for the image to load to get its dimensions
-            if (!item.type || item.type !== 'poem') {
-                return new Promise((resolve) => {
-                    const img = artElement.querySelector('img');
-                    if (img.complete) {
-                        this.setGridSpan(artElement, img);
-                        resolve();
-                    } else {
-                        img.onload = () => {
-                            this.setGridSpan(artElement, img);
-                            resolve();
-                        };
-                    }
-                });
-            }
-            return Promise.resolve();
-        });
-
-        await Promise.all(itemPromises);
-    }
-
-    setGridSpan(element, img) {
-        const aspectRatio = img.naturalWidth / img.naturalHeight;
-        const rowSpan = Math.ceil(aspectRatio * 2); // Adjust multiplier to control height
-        element.style.gridRow = `span ${rowSpan}`;
-    }
-
-    createArtElement(item) {
-        const artItem = document.createElement('div');
-        artItem.className = 'art-item';
-        
-        let content = '';
-        if (item.type === 'poem') {
-            content = `
-                <div class="art-content poetry">
-                    <h3>${item.title}</h3>
-                    <div class="poem-text">
-                        <p>${item.content.replace(/\n/g, '<br>')}</p>
-                    </div>
-                </div>
-            `;
-        } else {
-            content = `
-                <div class="art-image">
-                    <img src="${item.image}" alt="${item.title}" loading="lazy">
-                </div>
-            `;
-        }
-        
-        artItem.innerHTML = content;
-        
-        // Add click event listener
-        artItem.addEventListener('click', () => {
-            this.showArtModal(item);
-        });
-
-        return artItem;
-    }
-
-    showArtModal(item) {
-        const modal = document.createElement('div');
-        modal.className = 'art-modal';
-        
-        let modalContent = '';
-        if (item.type === 'poem') {
-            modalContent = `
-                <div class="art-modal__content">
-                    <button class="art-modal__close">&times;</button>
-                    <article class="art-full">
-                        <header class="art-full__header">
-                            <h1 class="art-full__title">${item.title}</h1>
-                        </header>
-                        <div class="art-full__content poetry">
-                            <div class="poem-text">
-                                <p>${item.content.replace(/\n/g, '<br>')}</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            `;
-        } else {
-            modalContent = `
-                <div class="art-modal__content">
-                    <button class="art-modal__close">&times;</button>
-                    <article class="art-full">
-                        <header class="art-full__header">
-                            <h1 class="art-full__title">${item.title}</h1>
-                        </header>
-                        <div class="art-full__image">
-                            <img src="${item.image}" alt="${item.title}">
-                        </div>
-                        <footer class="art-full__footer">
-                            <p class="art-full__date">${item.date}</p>
-                        </footer>
-                    </article>
-                </div>
-            `;
-        }
-        
-        modal.innerHTML = modalContent;
-
-        document.body.appendChild(modal);
-        document.body.style.overflow = 'hidden';
-
-        const closeBtn = modal.querySelector('.art-modal__close');
-        closeBtn.addEventListener('click', () => {
-            modal.remove();
-            document.body.style.overflow = '';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.remove();
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
-
-// Initialize art manager
-const artManager = new ArtManager();
-
-// Load art items when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // ... existing code ...
-    
-    // Load art items if we're on the art page
-    if (window.location.pathname.includes('art.html')) {
-        artManager.loadArtItems();
-    }
-})
-
-// Portfolio Manager class
-class PortfolioManager {
-    constructor() {
-        this.projects = [];
-        this.portfolioGrid = document.getElementById('portfolioGrid');
-    }
-
-    async loadProjects() {
-        try {
-            // Use relative path for GitHub Pages compatibility
-            const basePath = window.location.pathname.includes('/blog/') ? '../' : '';
-            const response = await fetch(`${basePath}portfolio.json`);
-            this.projects = await response.json();
-            await this.renderProjects();
-        } catch (error) {
-            console.error('Error loading portfolio projects:', error);
-        }
-    }
-
-    async renderProjects() {
-        if (!this.portfolioGrid) return;
-        this.portfolioGrid.innerHTML = '';
-        this.projects.forEach(project => {
-            const projectElement = this.createProjectElement(project);
-            this.portfolioGrid.appendChild(projectElement);
-        });
-    }
-
-    createProjectElement(project) {
-        const article = document.createElement('article');
-        article.className = 'post-card';
-        let imagesHtml = '';
-        if (Array.isArray(project.images) && project.images.length > 0) {
-            // Use the first image as the main image
-            const imgObj = project.images[0];
-            imagesHtml = `
-                <div class="post-image">
-                    <img src="${imgObj.src}" alt="${imgObj.caption || project.title}" loading="lazy">
-                </div>
-            `;
-        } else {
-            imagesHtml = '';
-        }
-        article.innerHTML = `
-            <div class="post-link" style="cursor: pointer;">
-                ${imagesHtml}
-                <div class="post-content">
-                    <div class="post-meta">
-                        ${project.date ? `<span class="post-date">${project.date}</span>` : ''}
-                    </div>
-                    <h2 class="title">${project.title}</h2>
-                    <p class="post-excerpt">${project.description || ''}</p>
-                    <div class="post-footer">
-                        <span class="read-more">View Project →</span>
-                    </div>
-                </div>
-            </div>
-        `;
-        // Add click event listener for modal
-        article.querySelector('.post-link').addEventListener('click', (e) => {
-            e.preventDefault();
-            this.showProjectModal(project);
-        });
-        return article;
-    }
-
-    showProjectModal(project) {
-        const modal = document.createElement('div');
-        modal.className = 'art-modal';
-        let imagesHtml = '';
-        if (Array.isArray(project.images)) {
-            imagesHtml = project.images.map(imgObj => `
-                <figure style="margin-bottom: 20px;">
-                    <img src="${imgObj.src}" alt="${imgObj.caption || project.title}" style="max-width: 100%; max-height: 60vh; display: block; margin: 0 auto;">
-                    ${imgObj.caption ? `<figcaption style='font-size: 1em; color: #666; text-align: center; margin-top: 5px;'>${imgObj.caption}</figcaption>` : ''}
-                </figure>
-            `).join('');
-        }
-        let pdfHtml = '';
-        if (project.pdf) {
-            pdfHtml = `<a href="${project.pdf}" class="view-all-link" target="_blank" style="margin-top: 20px; display: inline-block;">Download Report (PDF)</a>`;
-        }
-        modal.innerHTML = `
-            <div class="art-modal__content">
-                <button class="art-modal__close">&times;</button>
-                <article class="art-full">
-                    <header class="art-full__header">
-                        <h1 class="art-full__title">${project.title}</h1>
-                    </header>
-                    <div class="art-full__image">
-                        ${imagesHtml}
-                    </div>
-                    <div class="art-full__content">
-                        <p style="font-size: 1.1em; margin: 20px 0;">${project.description || ''}</p>
-                        ${pdfHtml}
-                    </div>
-                </article>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        document.body.style.overflow = 'hidden';
-        const closeBtn = modal.querySelector('.art-modal__close');
-        closeBtn.addEventListener('click', () => {
-            modal.remove();
-            document.body.style.overflow = '';
-        });
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.remove();
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
-
-// Initialize portfolio manager
-const portfolioManager = new PortfolioManager();
-
-// Load art or portfolio items when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // ... existing code ...
-    // Load art items if we're on the art page
-    if (window.location.pathname.includes('art.html')) {
-        artManager.loadArtItems();
-    }
-    // Load portfolio items if we're on the portfolio page
-    if (window.location.pathname.includes('portfolio.html')) {
-        portfolioManager.loadProjects();
-    }
-}) 

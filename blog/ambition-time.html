@@ -1,66 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ambition & time — Isaiah's Corner</title>
+  <meta name="description" content="So I lowkey always do this thing when I start anything new: I forget everything I know...">
+  <meta property="og:title" content="ambition & time — Isaiah's Corner">
+  <meta property="og:description" content="So I lowkey always do this thing when I start anything new: I forget everything I know...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/ambition-time.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/ambition.jpg">
+  <meta property="article:published_time" content="2025-06-12">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">ambition &amp; time</h1>
-                    <div class="post-meta">
-                        <span class="post-date">June 12, 2025</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/ambition.jpg" alt="Featured Image" class="post-image">
-<p>So I lowkey always do this thing when I start anything new: I forget everything I know about Good things taking <strong>time</strong>. I was reminded of this when I first went to college and was super intentional about building relationships and getting plugged into community and was let down when I didn&#39;t become best friends with everyone immediately. As if I could squeeze years of trust, intimacy, and love into a week of orientation, or even a semester. I think in a lot of ways, I&#39;ve done very similar things with where I&#39;m at now. I&#39;ve been desiring good community and relationships here in Texas and found myself face to face with the same reality that relationships aren&#39;t instantaneous. I&#39;ve been super <strong>ambitious</strong> with how I want to find people to grow with and connect with and do life with, but ultimately haven&#39;t been able to in the ways I thought I wanted. I was reflecting on all of this and was brought back to where I found myself freshman year of college. I had to change my perspective then and I had to do the same now, and since then I&#39;ve had so much more peace. I&#39;m seeing glimpses of growth and intimacy through everything where before I would&#39;ve just been getting frustrated with what I didn&#39;t see. I think a lot of my <strong>ambition</strong> clouded my eyes from looking to the place where relationships actually happen—in the every day and in the process. I&#39;m reminded again that relationships take <strong>time</strong>.</p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">June 12, 2025</p>
+        <h1 class="post-header__title">ambition & time</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/ambition.jpg" alt="ambition &amp; time" loading="lazy">
+
+      <div class="post-body">
+        <p>So I lowkey always do this thing when I start anything new: I forget everything I know about Good things taking <strong>time</strong>. I was reminded of this when I first went to college and was super intentional about building relationships and getting plugged into community and was let down when I didn&#39;t become best friends with everyone immediately. As if I could squeeze years of trust, intimacy, and love into a week of orientation, or even a semester. I think in a lot of ways, I&#39;ve done very similar things with where I&#39;m at now. I&#39;ve been desiring good community and relationships here in Texas and found myself face to face with the same reality that relationships aren&#39;t instantaneous. I&#39;ve been super <strong>ambitious</strong> with how I want to find people to grow with and connect with and do life with, but ultimately haven&#39;t been able to in the ways I thought I wanted. I was reflecting on all of this and was brought back to where I found myself freshman year of college. I had to change my perspective then and I had to do the same now, and since then I&#39;ve had so much more peace. I&#39;m seeing glimpses of growth and intimacy through everything where before I would&#39;ve just been getting frustrated with what I didn&#39;t see. I think a lot of my <strong>ambition</strong> clouded my eyes from looking to the place where relationships actually happen—in the every day and in the process. I&#39;m reminded again that relationships take <strong>time</strong>.</p>
 <p>I talked a bit about my <a href="https://www.isaiahscorner.com/blog/sight-goals.html">sight &amp; goals</a> and how I&#39;ve kinda lost track of them too, but I think I&#39;ve lost track of them in more ways than one. I&#39;ve realized that I&#39;m rushing the finished product without allowing the process to do its work, and because of that I haven&#39;t been allowing the process to shape me, to mold me, to change me. For example, these days I&#39;ve been able to meet one on one with a lot of directors, vice presidents, and executives at Samsung and pick at their brains. I&#39;ve gotten to learn about their stories, their journeys through their careers, their passions, and their desires, and here I am, this little 21 year old kid, asking them about all of this. Over these past few weeks, these different leaders have been telling me something along the lines of, &quot;It doesn&#39;t happen immediately—you put the work in and eventually your value will speak for itself.&quot; At first, I kind of brushed it off, thinking, &quot;Yeah, of course I know this.&quot; But I was thinking—if I were in their shoes, 20 years into my career, and some punk asked me how I got there, I&#39;d want to make sure he truly understood it too. And honestly, I still don&#39;t know what &quot;it&quot; is exactly or what the finished product is, but it&#39;s like I&#39;m trying to get there faster than I can grow. All of this helping to make me remember growth takes <strong>time</strong>.</p>
 <p>One of the biggest ways this has come into play in my life is with my girlfriend. Initial passion is easy and so is infatuation, but when all of that fades, what is left? Doing long distance is harder than I&#39;d like to admit and I&#39;m being met with the root of what I believe about myself, my girlfriend, and love. But the thing is it&#39;s only through this process that I can fully realize the truth of love in the midst of hardship, the truth of commitment in the face of uncertainty, and the truth of intimacy despite distance. It&#39;s like how you can only know how strong something is by pushing it to its limit. What a beautiful thing that love takes hardship, love takes doubt, love takes <strong>time</strong>.</p>
 <p>I guess through all of this, I&#39;m learning <strong>ambition</strong> can&#39;t outrun <strong>time</strong>. It&#39;s like how people who win the lottery are more likely to declare bankruptcy than people who don&#39;t, there are lessons learned only through the process of <strong>time</strong> and determination, not instantaneous achievement. I think I forgot that for a bit. Life has been sweeter when I&#39;m not focused on the product but the process. When else do you get to learn about someone&#39;s passions and dreams for the first time? Or wrestle with new work and grow new skills? Or fall in love? It&#39;s been great to just enjoy the season I&#39;m in and normally I&#39;d say I&#39;m excited for what&#39;s to come, but these days I&#39;ve been grateful for the <strong>time</strong> that I&#39;m living in right now.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>

@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaiah's Corner</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isaiah's Corner</title>
+  <meta name="description" content="A personal space for writing, art, and poetry by Isaiah Park.">
+  <meta property="og:title" content="Isaiah's Corner">
+  <meta property="og:description" content="A personal space for writing, art, and poetry by Isaiah Park.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.isaiahscorner.com/">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/homepage.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="blog/logo.png" alt="Logo" class="logo-image">
-                </a>
-                <div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">welcome</p>
+          <h1 class="hero__title">isaiah's corner</h1>
+          <p class="hero__subtitle">writing through life as I find it.</p>
+          <a class="hero__cta" href="/blog/welcome-hello.html">start here &rarr;</a>
         </div>
-    </header>
-    <main class="main">
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <div class="container">
-                <div class="welcome-content">
-                    <h1 class="welcome-title">Welcome to Isaiah's Corner</h1>
-                    <a href="blog/welcome-hello.html" class="welcome-link">MISSION</a>
-                </div>
-            </div>
-        </section>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <svg width="16" height="22" viewBox="0 0 16 22" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 2v18M2 14l6 6 6-6"/>
+        </svg>
+      </div>
+    </section>
 
-        <!-- Recent Posts Section -->
-        <section class="recent-posts">
-            <div class="container">
-                <h2 class="section-title">Recent Posts</h2>
-                <div class="posts-grid">
-                    <!-- Posts will be dynamically loaded here -->
-                </div>
-                <div class="view-all-container">
-                    <a href="blog.html" class="view-all-link">View All Posts →</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
+    <!-- Recent posts -->
+    <section class="posts-section" aria-labelledby="recent-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="recent-heading">recent writing</h2>
+          <div class="section-header__rule" aria-hidden="true"></div>
+          <a class="section-header__link" href="/blog.html">view all posts →</a>
         </div>
-    </footer>
+        <div id="recentPosts" aria-live="polite">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+  </main>
+
+  <!-- About strip -->
+  <aside class="home-about">
+    <div class="container">
+      <div class="home-about__inner">
+        <img class="home-about__photo" src="/photos/profile.jpg" alt="Isaiah Park">
+        <p class="home-about__text">isaiah's corner is a personal space for writing, art, and poetry — a record of life as it unfolds.</p>
+        <a class="home-about__link" href="/about.html">about isaiah →</a>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
-</html> 
+</html>

@@ -1,67 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>books & reading — Isaiah's Corner</title>
+  <meta name="description" content="Today I was really reluctant to be pulled aside to start writing this. The thing about today was...">
+  <meta property="og:title" content="books & reading — Isaiah's Corner">
+  <meta property="og:description" content="Today I was really reluctant to be pulled aside to start writing this. The thing about today was...">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.isaiahscorner.com/blog/books-reading.html">
+  <meta property="og:image" content="https://www.isaiahscorner.com/photos/books.jpg">
+  <meta property="article:published_time" content="2020-07-17">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="/">
-                    <img src="logo.png" alt="Logo" class="logo-image">
-                </a>
-<div class="topnav" id="myTopnav">
-                    <a href="/" class="active">Home</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/art.html">Art</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/about.html">About</a>
-                    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1 class="title">books &amp; reading</h1>
-                    <div class="post-meta">
-                        <span class="post-date">July 17, 2020</span>
-                    </div>
-                </header>
-                <div class="post-content">
-                    <!-- Featured Image -->
-                    <img src="../photos/books.jpg" alt="Featured Image" class="post-image">
-<p>Today I was really reluctant to be pulled aside to start writing this. The thing about today was that I did absolutely nothing, but at the same time learned and experienced so much.  </p>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close navigation">&times;</button>
+    <a class="nav-overlay__link" href="/">home</a>
+    <a class="nav-overlay__link" href="/blog.html">blog</a>
+    <a class="nav-overlay__link" href="/art.html">art &amp; poetry</a>
+    <a class="nav-overlay__link" href="/about.html">about</a>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="/" aria-label="Isaiah's Corner — home">
+          <img class="logo-image" src="/blog/logo.png" alt="Isaiah's Corner">
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="nav">
+            <li class="nav__item"><a class="nav__link" href="/">home</a></li>
+            <li class="nav__item"><a class="nav__link" href="/blog.html">blog</a></li>
+            <li class="nav__item"><a class="nav__link" href="/art.html">art &amp; poetry</a></li>
+            <li class="nav__item"><a class="nav__link" href="/about.html">about</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navOverlay">
+          <svg class="nav-toggle__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="5"  x2="18" y2="5"/>
+            <line x1="2" y1="10" x2="18" y2="10"/>
+            <line x1="2" y1="15" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <article class="post-wrap">
+
+      <header class="post-header">
+        <p class="post-header__date">July 17, 2020</p>
+        <h1 class="post-header__title">books & reading</h1>
+        <p class="post-header__byline">Isaiah Park</p>
+      </header>
+
+      <img class="post-featured-image" src="../photos/books.jpg" alt="books &amp; reading" loading="lazy">
+
+      <div class="post-body">
+        <p>Today I was really reluctant to be pulled aside to start writing this. The thing about today was that I did absolutely nothing, but at the same time learned and experienced so much.  </p>
 <p>Today I&#39;ve been rediscovering what it&#39;s like to fall in love with <strong>reading</strong>. Getting completely immersed in a story to not want to put it down. It&#39;s been a goal of mine this summer to <strong>read</strong> a lot more and I&#39;m glad that I&#39;ve been doing just that. For the past couple of weeks I&#39;ve been <strong>reading</strong> some great <strong>books</strong>: <em>A Million Miles in a Thousand Years</em> by Donald Miller and <em>Love Does</em> by Bob Goff, both <strong>books</strong> that I highly, highly recommend. After practice and some breakfast, without anything better to do, I picked up <em>Ready Player One</em> by Ernest Cline.  </p>
 <p><em>Ready Player One</em> is a movie that I&#39;ve seen a couple times and has been recommended to me a lot. I&#39;m am so glad that I decided to <strong>read</strong> it in the first place. Although the story concept is similar, the <strong>book</strong> is almost completely different from the movie, something that I was extremely happy about. Knowing how good the movie and its story was, I&#39;m glad that the actual story of the <strong>book</strong> is something that I can enjoy as something new and in my opinion even better. But I don&#39;t think it&#39;s necessarily about the <strong>book</strong> itself that I&#39;m enjoying, although it is an <em>amazing</em> <strong>book</strong>. I love the idea of being able to stare at words on a page and imagine intricate scenes in my head, watch as these characters learn and grow, and learn so much from sitting on my own couch.  </p>
 <p>It&#39;s been a very, very long time since I&#39;ve spent hours and hours <strong>reading</strong> a <strong>book</strong> in a day. I&#39;ve always loved <strong>reading</strong> but have fallen out of it from middle school when I felt like I couldn&#39;t make time or find a <strong>book</strong> enjoyable enough. I started this <strong>book</strong> today and have gone through over 500 pages and probably wouldn&#39;t have stopped until I finished except I looked at the time and realized I haven&#39;t written today. There&#39;s so much that I could write about the lessons that are slipped into <em>Ready Player One</em> and the things that I&#39;m learning, but what I want to take away is importance and my love for <strong>reading</strong> again.</p>
 <p>There&#39;s really isn&#39;t much to this post which I&#39;m ok with. I&#39;m just really thankful that I&#39;m being thrown way back to 5th grade where you would find me curled up in a chair, <strong>reading</strong> for hours. So as terrible quality as this blog was, I don&#39;t really care. I&#39;m gonna get back to my <strong>book</strong> now.</p>
 
-                 </div>
-            </div>
-        </article>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__inner">
-                <div class="footer__copyright">
-                    © <span id="copyright-year"></span> Isaiah's Corner. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+      <nav class="post-nav" aria-label="Post navigation" id="postNav">
+        <!-- Populated by script.js -->
+      </nav>
 
-    <script src="../script.js"></script>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">© <span class="js-year"></span> isaiah's corner</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a class="footer__link" href="/blog.html">blog</a>
+          <a class="footer__link" href="/art.html">art &amp; poetry</a>
+          <a class="footer__link" href="/about.html">about</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html> 
+</html>
