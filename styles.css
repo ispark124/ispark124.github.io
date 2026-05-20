@@ -840,7 +840,7 @@ strong {
    ============================================================ */
 
 .art-page-header {
-  padding: 56px 0 40px;
+  padding: 56px 0 0;
   border-bottom: 1px solid var(--border);
   margin-bottom: 48px;
 }
@@ -858,93 +858,110 @@ strong {
   font-size: 16px;
   font-style: italic;
   color: var(--text-muted);
+  margin-bottom: 32px;
 }
 
-/* Masonry grid */
+/* ── Filter bar ───────────────────────────────────────────── */
+.art-filter-bar {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 36px;
+}
+
+.art-filter-btn {
+  padding: 9px 22px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.art-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.art-filter-btn.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+/* ── Masonry grid ─────────────────────────────────────────── */
 .art-grid {
   column-count: 3;
   column-gap: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 96px;
 }
 
 @media (max-width: 900px) {
-  .art-grid {
-    column-count: 2;
-  }
+  .art-grid { column-count: 2; }
 }
 
 @media (max-width: 560px) {
-  .art-grid {
-    column-count: 1;
-  }
+  .art-grid { column-count: 1; }
+}
+
+/* ── Base card ────────────────────────────────────────────── */
+@keyframes artItemIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .art-item {
   break-inside: avoid;
   margin-bottom: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
   border-radius: var(--card-radius);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  animation: artItemIn 0.4s ease both;
 }
 
-.art-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+/* ── Poem card ────────────────────────────────────────────── */
+.art-item--poem {
+  background: var(--hero-bg);
+  transition: transform 0.2s, box-shadow 0.22s;
 }
 
-
-/* Poem card */
-.art-item--poem-card {
-  background: var(--bg-card);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.22s;
+.art-item--poem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
 }
 
-.art-item--poem-card:hover {
-  background: rgba(188, 157, 139, 0.12);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+.art-poem-card {
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-/* Type badge */
-.art-item__badge {
-  display: inline-block;
-  padding: 3px 9px;
+.art-poem-card__label {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.art-poem-card__title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
   font-style: italic;
-  color: var(--accent-dark);
-  background: var(--bg-secondary);
-  border-radius: 2px;
-  margin: 12px 12px 0;
+  color: var(--hero-text);
+  line-height: 1.3;
 }
 
-.art-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Poetry card */
-.art-item__poem {
-  padding: 20px;
-}
-
-.art-item__poem-title {
+.art-poem-card__preview {
   font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.art-item__poem-preview {
-  font-family: var(--font-display);
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.7;
+  font-size: 13.5px;
+  color: rgba(245, 240, 235, 0.45);
+  line-height: 1.8;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   display: -webkit-box;
@@ -953,24 +970,68 @@ strong {
   overflow: hidden;
 }
 
-/* Image card label */
-.art-item__img-label {
-  padding: 12px 14px;
+.art-poem-card__cta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
 }
 
-.art-item__img-title {
+/* ── Artwork card ─────────────────────────────────────────── */
+.art-item--artwork {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.22s;
+}
+
+.art-item--artwork:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.16);
+}
+
+.art-artwork-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.art-artwork-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.art-item--artwork:hover .art-artwork-card img {
+  transform: scale(1.04);
+}
+
+.art-artwork-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18,12,8,0.84) 0%, transparent 52%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 16px;
+}
+
+.art-item--artwork:hover .art-artwork-card__overlay {
+  opacity: 1;
+}
+
+.art-artwork-card__title {
   font-family: var(--font-display);
   font-size: 15px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--hero-text);
   margin-bottom: 2px;
 }
 
-.art-item__img-date {
+.art-artwork-card__date {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11px;
   font-style: italic;
-  color: var(--text-muted);
+  color: rgba(245,240,235,0.65);
 }
 
 /* ── Art Modal ────────────────────────────────────────────── */
@@ -978,12 +1039,12 @@ strong {
   position: fixed;
   inset: 0;
   z-index: 500;
-  background: rgba(18, 12, 8, 0.75);
+  background: rgba(18, 12, 8, 0.88);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  animation: modalFadeIn 0.2s ease both;
+  animation: modalFadeIn 0.22s ease both;
 }
 
 @keyframes modalFadeIn {
@@ -991,42 +1052,77 @@ strong {
   to   { opacity: 1; }
 }
 
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .art-modal__content {
   background: var(--bg-card);
-  border-radius: 8px;
-  max-width: 700px;
+  border-radius: 10px;
+  max-width: 720px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 92vh;
   overflow-y: auto;
   position: relative;
+  animation: modalSlideIn 0.28s ease both;
+}
+
+.art-modal__content--poem {
+  background: var(--hero-bg);
+  max-width: 560px;
 }
 
 .art-modal__close {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  color: var(--text);
+  color: rgba(255,255,255,0.75);
   font-size: 18px;
   line-height: 1;
   z-index: 1;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+}
+
+.art-modal__close--dark {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
 }
 
 .art-modal__close:hover {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+.art-modal__close--dark:hover {
   background: var(--border);
+  color: var(--text);
 }
 
 .art-modal__body {
-  padding: 48px 40px 40px;
+  padding: 52px 44px 44px;
+}
+
+.art-modal__body--poem {
+  padding: 56px 48px 52px;
+}
+
+.art-modal__label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
 .art-modal__title {
@@ -1037,11 +1133,18 @@ strong {
   margin-bottom: 6px;
 }
 
+.art-modal__title--poem {
+  color: var(--hero-text);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
 .art-modal__date {
   font-family: var(--font-body);
   font-size: 13px;
   font-style: italic;
-  color: var(--accent);
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
@@ -1056,22 +1159,17 @@ strong {
 .art-modal__poem-text {
   font-family: var(--font-display);
   font-size: 18px;
-  line-height: 1.9;
-  color: var(--text);
+  line-height: 2.05;
+  color: rgba(245, 240, 235, 0.88);
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
 
 @media (max-width: 560px) {
-  .art-modal__body {
-    padding: 44px 24px 32px;
-  }
-  .art-modal__title {
-    font-size: 22px;
-  }
-  .art-modal__poem-text {
-    font-size: 16px;
-  }
+  .art-modal__body { padding: 44px 24px 32px; }
+  .art-modal__body--poem { padding: 52px 28px 40px; }
+  .art-modal__title { font-size: 22px; }
+  .art-modal__poem-text { font-size: 16px; }
 }
 
 /* ============================================================
@@ -1527,30 +1625,6 @@ strong {
     gap: 12px;
   }
 }
-
-/* ============================================================
-   ART ITEMS — hover tint overlay
-   ============================================================ */
-
-.art-item:not(.art-item--poem-card) {
-  position: relative;
-}
-
-.art-item:not(.art-item--poem-card)::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  transition: background 0.25s ease;
-  pointer-events: none;
-  border-radius: var(--card-radius);
-  z-index: 1;
-}
-
-.art-item:not(.art-item--poem-card):hover::after {
-  background: rgba(188, 157, 139, 0.12);
-}
-
 
 /* ============================================================
    SEARCH — icon-triggered toggle

@@ -375,41 +375,83 @@ async function initArt() {
   const grid = document.getElementById('artGrid');
   if (!grid) return;
 
-  try {
-    const items = await fetchJSON(`${basePath()}art.json`);
+  let allItems = [];
+  let activeFilter = 'all';
 
-    grid.innerHTML = items.map(item => {
-      if (item.type === 'poem') {
-        const previewLines = item.content.split('\n').slice(0, 4).join('\n');
-        return `
-          <div class="art-item art-item--poem-card" role="button" tabindex="0" aria-label="Read poem: ${escapeHtml(item.title)}" data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
-            <div class="art-item__poem">
-              <h2 class="art-item__poem-title">${escapeHtml(item.title)}</h2>
-              <div class="art-item__poem-preview">${escapeHtml(previewLines)}</div>
+  function getVisible() {
+    if (activeFilter === 'all') return allItems;
+    if (activeFilter === 'poem') return allItems.filter(i => i.type === 'poem');
+    return allItems.filter(i => i.type !== 'poem');
+  }
+
+  function poemCardHTML(item) {
+    const preview = item.content.split('\n').slice(0, 5).join('\n');
+    return `
+      <article class="art-item art-item--poem" role="button" tabindex="0"
+        aria-label="Read poem: ${escapeHtml(item.title)}"
+        data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
+        <div class="art-poem-card">
+          <span class="art-poem-card__label">poem</span>
+          <h2 class="art-poem-card__title">${escapeHtml(item.title)}</h2>
+          <p class="art-poem-card__preview">${escapeHtml(preview)}</p>
+          <span class="art-poem-card__cta">read →</span>
+        </div>
+      </article>
+    `;
+  }
+
+  function artworkCardHTML(item) {
+    return `
+      <article class="art-item art-item--artwork" role="button" tabindex="0"
+        aria-label="View artwork: ${escapeHtml(item.title)}"
+        data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
+        <div class="art-artwork-card">
+          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <div class="art-artwork-card__overlay">
+            <div>
+              <p class="art-artwork-card__title">${escapeHtml(item.title)}</p>
+              ${item.date ? `<p class="art-artwork-card__date">${escapeHtml(item.date)}</p>` : ''}
             </div>
           </div>
-        `;
-      } else {
-        return `
-          <div class="art-item" role="button" tabindex="0" aria-label="View artwork: ${escapeHtml(item.title)}" data-item='${JSON.stringify(item).replace(/'/g, "&#x27;")}'>
-            <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">
-          </div>
-        `;
-      }
-    }).join('');
+        </div>
+      </article>
+    `;
+  }
 
-    grid.addEventListener('click', e => {
+  function renderGrid() {
+    const visible = getVisible();
+    grid.innerHTML = visible.map(item =>
+      item.type === 'poem' ? poemCardHTML(item) : artworkCardHTML(item)
+    ).join('');
+    grid.querySelectorAll('.art-item').forEach((el, i) => {
+      el.style.animationDelay = `${i * 0.045}s`;
+    });
+  }
+
+  grid.addEventListener('click', e => {
+    const card = e.target.closest('.art-item');
+    if (card) openModal(JSON.parse(card.dataset.item));
+  });
+
+  grid.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
       const card = e.target.closest('.art-item');
-      if (card) openModal(JSON.parse(card.dataset.item));
-    });
+      if (card) { e.preventDefault(); openModal(JSON.parse(card.dataset.item)); }
+    }
+  });
 
-    grid.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const card = e.target.closest('.art-item');
-        if (card) { e.preventDefault(); openModal(JSON.parse(card.dataset.item)); }
-      }
+  document.querySelectorAll('.art-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.art-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderGrid();
     });
+  });
 
+  try {
+    allItems = await fetchJSON(`${basePath()}art.json`);
+    renderGrid();
   } catch (err) {
     console.error('Could not load art items:', err);
   }
@@ -422,31 +464,36 @@ function openModal(item) {
   if (existing) existing.remove();
 
   const modal = document.createElement('div');
-  modal.className  = 'art-modal';
+  modal.className = 'art-modal';
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
   modal.setAttribute('aria-labelledby', 'modalTitle');
 
-  let body = '';
-  if (item.type === 'poem') {
-    body = `
-      <h2 class="art-modal__title" id="modalTitle">${escapeHtml(item.title)}</h2>
-      <div class="art-modal__poem-text">${escapeHtml(item.content)}</div>
+  const isPoem = item.type === 'poem';
+
+  if (isPoem) {
+    modal.innerHTML = `
+      <div class="art-modal__content art-modal__content--poem">
+        <button class="art-modal__close" aria-label="Close">&times;</button>
+        <div class="art-modal__body art-modal__body--poem">
+          <p class="art-modal__label">poem</p>
+          <h2 class="art-modal__title art-modal__title--poem" id="modalTitle">${escapeHtml(item.title)}</h2>
+          <div class="art-modal__poem-text">${escapeHtml(item.content)}</div>
+        </div>
+      </div>
     `;
   } else {
-    body = `
-      <h2 class="art-modal__title" id="modalTitle">${escapeHtml(item.title)}</h2>
-      ${item.date ? `<p class="art-modal__date">${escapeHtml(item.date)}</p>` : ''}
-      <img class="art-modal__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
+    modal.innerHTML = `
+      <div class="art-modal__content">
+        <button class="art-modal__close art-modal__close--dark" aria-label="Close">&times;</button>
+        <div class="art-modal__body">
+          <h2 class="art-modal__title" id="modalTitle">${escapeHtml(item.title)}</h2>
+          ${item.date ? `<p class="art-modal__date">${escapeHtml(item.date)}</p>` : ''}
+          <img class="art-modal__image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
+        </div>
+      </div>
     `;
   }
-
-  modal.innerHTML = `
-    <div class="art-modal__content">
-      <button class="art-modal__close" aria-label="Close">&times;</button>
-      <div class="art-modal__body">${body}</div>
-    </div>
-  `;
 
   document.body.appendChild(modal);
   document.body.style.overflow = 'hidden';
@@ -460,11 +507,7 @@ function openModal(item) {
   }
 
   closeBtn.addEventListener('click', closeModal);
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) closeModal();
-  });
-
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   modal.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
     if (e.key === 'Tab') {
