@@ -22,6 +22,11 @@ function toISO(dateStr) {
   ].join('-');
 }
 
+function toDisplayDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 function buildBlog() {
   const template = fs.readFileSync(TEMPLATE, 'utf8');
   const files    = fs.readdirSync(BLOG_CONTENT).filter(f => f.endsWith('.md'));
@@ -29,10 +34,13 @@ function buildBlog() {
 
   for (const file of files) {
     const { data, content } = matter(fs.readFileSync(path.join(BLOG_CONTENT, file), 'utf8'));
-    const { title, date, slug, excerpt, image } = data;
+    const date  = data.date || data.created;
+    const title = data.title || path.basename(file, '.md');
+    const slug  = data.slug || path.basename(file, '.md').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const { excerpt, image } = data;
 
-    if (!title || !date || !slug) {
-      console.warn(`  ⚠  Skipping ${file}: missing title, date, or slug in frontmatter`);
+    if (!date) {
+      console.warn(`  ⚠  Skipping ${file}: missing date or created in frontmatter`);
       continue;
     }
 
@@ -42,9 +50,11 @@ function buildBlog() {
       ? `<img class="post-featured-image" src="../${image}" alt="${safeTitle}" loading="lazy">`
       : '';
 
+    const displayDate = toDisplayDate(date);
+
     const html = template
       .replace(/\{\{TITLE\}\}/g,     title)
-      .replace(/\{\{DATE\}\}/g,      date)
+      .replace(/\{\{DATE\}\}/g,      displayDate)
       .replace(/\{\{DATE_ISO\}\}/g,  toISO(date))
       .replace(/\{\{SLUG\}\}/g,      slug)
       .replace(/\{\{EXCERPT\}\}/g,   excerpt || '')
@@ -55,10 +65,11 @@ function buildBlog() {
     fs.writeFileSync(path.join(BLOG_OUT, `${slug}.html`), html);
     console.log(`  ✓ blog/${slug}.html`);
 
-    posts.push({ title, date, slug, excerpt: excerpt || '', image: image || '' });
+    posts.push({ title, date: displayDate, rawDate: date, slug, excerpt: excerpt || '', image: image || '' });
   }
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+  posts.forEach(p => delete p.rawDate);
   fs.writeFileSync(POSTS_JSON, JSON.stringify(posts, null, 2) + '\n');
   console.log(`  ✓ posts.json (${posts.length} posts)`);
 }
@@ -73,12 +84,7 @@ function buildPoetry() {
 
   for (const file of files) {
     const { data, content } = matter(fs.readFileSync(path.join(POEM_CONTENT, file), 'utf8'));
-    const { title } = data;
-
-    if (!title) {
-      console.warn(`  ⚠  Skipping ${file}: missing title in frontmatter`);
-      continue;
-    }
+    const title = data.title || path.basename(file, '.md');
 
     const entry = { title, type: 'poem', content: content.trim() };
     const idx   = art.findIndex(e => e.type === 'poem' && e.title === title);
