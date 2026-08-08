@@ -1,5 +1,5 @@
 ---
-created: 2026-08-05T18:51:00
+created: 2026-08-08T12:20:00
 type: blog
 status: working
 tag:
@@ -12,7 +12,7 @@ Do you think Jesus liked being a **carpenter**? Like genuinely enjoyed the work 
 
 I'm about a month into my job now and honestly the whole working every single day, living the 9 to 5 schedule, and raising shareholder value bit has me a little frustrated. Like really what is it all for? Admittedly, part of it is the naivety of being post-grad thinking the rest of my life is just going to be perfect now that I'm independent and everything that comes with it. But I do think there's a lot I'm wrestling with as it comes to purpose, meaning, and my work (shocker, I know). These days I find myself thinking often about Jesus' time on Earth. Surely He was frustrated too. Surely when Jesus was 22, 10 years into doing **carpentry**, He woke up thinking, "I was made for more than this." He had every right to–that's literally God Himself fixing His neighbor's chair (on second though, that sounds exactly like God, doesn't it?) Regardless, I'm wishing He was more frustrated. It gives me an excuse to be discontent about what I'm doing. Surely He did the same.
 
-But also taking that though further, in what world does the Son of God, God incarnate, come down to Earth to suffer and die? Building tables doesn't seem that glorious, but in comparison to being beaten, mocked, and scorned, it's a glorious trade. And yet, He went to the cross for the **joy** set before Him. What a horribly beautiful purpose. As I reflect on that verse, "the **joy** set before Him," I'm brought to a couple different thoughts:
+But also taking that thought further, in what world does the Son of God, God incarnate, come down to Earth to suffer and die? Building tables doesn't seem that glorious, but in comparison to being beaten, mocked, and scorned, it's a glorious trade. And yet, He went to the cross for the **joy** set before Him. What a horribly beautiful purpose. As I reflect on that verse, "the **joy** set before Him," I'm brought to a couple different thoughts:
 
 1) That **joy** was us. That's what I have heard time and time again growing up in church. Jesus died for us. He loves us so much that He would endure the suffering and injustice of the cross. This is the gospel. And
 2) After some more reflection, that **joy** was also the Father. Jesus understood more than us all, "For I have come down from heaven, not to do my own will but the will of him who sent me." This is the gospel.
