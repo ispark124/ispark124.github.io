@@ -747,6 +747,24 @@ strong {
   margin: 36px 0 14px;
 }
 
+.post-body ol,
+.post-body ul {
+  margin: 0 0 26px;
+  padding-left: 28px;
+}
+
+.post-body li {
+  margin-bottom: 12px;
+}
+
+.post-body li:last-child {
+  margin-bottom: 0;
+}
+
+.post-body li > p {
+  margin-bottom: 12px;
+}
+
 .post-body blockquote {
   border-left: 3px solid var(--accent);
   padding-left: 20px;
