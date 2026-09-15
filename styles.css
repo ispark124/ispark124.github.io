@@ -983,10 +983,6 @@ strong {
   line-height: 1.8;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .art-poem-card__cta {
@@ -1180,8 +1176,10 @@ strong {
   font-size: 18px;
   line-height: 2.05;
   color: var(--text);
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
+  white-space: pre;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 @media (max-width: 560px) {

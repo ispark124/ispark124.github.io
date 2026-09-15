@@ -498,12 +498,33 @@ function openModal(item) {
   document.body.appendChild(modal);
   document.body.style.overflow = 'hidden';
 
+  let fitPoemText = null;
+  if (isPoem) {
+    const poemText = modal.querySelector('.art-modal__poem-text');
+    const minFontSize = 11;
+    fitPoemText = () => {
+      poemText.style.fontSize = '';
+      let size = parseFloat(getComputedStyle(poemText).fontSize);
+      while (poemText.scrollWidth > poemText.clientWidth && size > minFontSize) {
+        size -= 1;
+        poemText.style.fontSize = `${size}px`;
+      }
+    };
+    fitPoemText();
+    window.addEventListener('resize', fitPoemText);
+    window.addEventListener('orientationchange', fitPoemText);
+  }
+
   const closeBtn = modal.querySelector('.art-modal__close');
   closeBtn.focus();
 
   function closeModal() {
     modal.remove();
     document.body.style.overflow = '';
+    if (fitPoemText) {
+      window.removeEventListener('resize', fitPoemText);
+      window.removeEventListener('orientationchange', fitPoemText);
+    }
   }
 
   closeBtn.addEventListener('click', closeModal);
