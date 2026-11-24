@@ -44,7 +44,9 @@ function buildBlog() {
       continue;
     }
 
-    const bodyHtml = marked(content.trim());
+    // Text pasted from sites like Bible Gateway often carries non-breaking
+    // spaces (U+00A0) between words, which stops lines from wrapping on mobile.
+    const bodyHtml = marked(content.replace(/ /g, ' ').trim());
     const safeTitle = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
     const featuredImage = image
       ? `<img class="post-featured-image" src="../${image}" alt="${safeTitle}" loading="lazy">`
