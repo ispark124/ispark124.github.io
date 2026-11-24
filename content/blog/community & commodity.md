@@ -1,5 +1,5 @@
 ---
-created: 2026-11-22T19:07:00
+created: 2026-11-24T19:07:00
 type: blog
 status: working
 title: community & commodity
@@ -44,6 +44,7 @@ in a world so focused on self, so focused on profit, so focused on taking, this 
 > john 15:13
 
 ---
+
 
 i don't think we need to stop with the social clubs. i don't think we need to stop with the partifuls and possibly even the social media pushing. i do think we need to take a hard look at the way that consumerism, pleasure, and entertainment have infested our view of community and relationships.
 
